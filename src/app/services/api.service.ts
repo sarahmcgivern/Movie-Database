@@ -1,13 +1,16 @@
+
 import {Injectable} from '@angular/core'
 import {HttpClient} from '@angular/common/http'
 import { BehaviorSubject } from 'rxjs';
 import {HttpHeaders} from '@angular/common/http';
+
 
 @Injectable()
 
 export class Api {
     apiUrl = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?country=us&term=office'
 
+    
     constructor( private http: HttpClient) {}
     
 
@@ -19,6 +22,9 @@ export class Api {
         return this.http.get(this.apiUrl, { headers });
     }
 
+
+    }
+ 
 
 
 }
