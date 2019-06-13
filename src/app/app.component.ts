@@ -22,6 +22,7 @@ interface ApiData {
 export class AppComponent {
   title = 'Movie-Database';
   movies: Movie[];
+  searchInput: string;
 
   //  ngOnInit() {
   //   this.api.detail.subscribe(data => console.log(data));
@@ -29,11 +30,14 @@ export class AppComponent {
 
   constructor(private api: Api, private router: Router) {}
 
-
-
-  ngOnInit() {
-    this.api.getMovie().subscribe(data => console.log(data));
+   getAllMovies() {
+    this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
   }
+
+
+  // ngOnInit() {
+  //   this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
+  // }
 
   // ngOnInit() {
   //   this.api.movies.subscribe(data => this.movies = data);
