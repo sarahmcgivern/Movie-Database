@@ -7,11 +7,12 @@ interface MovieInfo {
 }
 
 interface Movie {
+  count: number;
   movie: MovieInfo[];
 }
-
 interface ApiData {
-  results: Movie;
+  items: Movie;
+  hits: Movie[];
 }
 
 @Component({
@@ -21,13 +22,14 @@ interface ApiData {
 })
 export class AppComponent {
   title = 'Movie-Database';
-  movies: Movie[];
+  // movies: Movie[];
   searchInput: string;
   typeMovie: boolean = false;
   typeTv: boolean = false;
   videoType: string;
   startYear: string = '1900';
   endYear: string = '2019';
+
 
   //  ngOnInit() {
   //   this.api.detail.subscribe(data => console.log(data));
@@ -36,9 +38,12 @@ export class AppComponent {
   constructor(private api: Api, private router: Router) {}
 
 
-
-  ngOnInit() {
+    // getAllMovies = () => {
+    //   this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
+    // }
     
+
+
   }
 
   getAllMovies = () => {

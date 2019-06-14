@@ -1,5 +1,90 @@
-
+<!-- 
 <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a movie"/>
 
 <button (click)="getAllMovies()">Get Movies</button>
 
+<div  class="container">
+    <div  class="movie_div"  *ngFor='let movie of list'>
+        <h1 class='movie_heading'>{{ movie.title }}</h1>
+        <div class="image-container">
+        <img class='movie_img' src= {{movie.image}} alt="">
+        </div> 
+        <p> {{ movie.synopsis }}</p>
+    </div>
+</div> -->
+
+<h1>Are you looking for...</h1>
+<label class="movie">Movie
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<label class="tv">TV
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<label class="tv">I could do either...
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<h1>Pick a year</h1>
+<label class="classic">Classic
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<label class="contemporary">Contemporary
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<label class="surprise">Surprise me
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<h1>I'm in the mood for something...</h1>
+<label class="rom-com">Sassy
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+    
+<label class="action">Action-packed
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<label class="crime">Bloody
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<label class="comedy">LOL
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<label class="drama">Dramatic
+    <input type="checkbox" checked="checked">
+    <span class="checkmark"></span>
+</label>
+
+<h1>What country do you live in?</h1>
+<div class="dropdown">
+        <button class="dropbtn">Select</button>
+        <div class="dropdown-content">
+          <p>United States</p>
+          <p>Norway</p>
+          <p>Canada</p>
+          <p>Denmark</p>
+          <p>Sweden</p>
+          <p>Netherlands</p>
+          <p>Australia</p>
+          <p>Finland</p>
+          <p>Germany</p>
+          <p>United Kingdom</p>
+         
+        </div>
+      </div>
