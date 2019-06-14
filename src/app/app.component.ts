@@ -44,7 +44,7 @@ export class AppComponent {
     
 
 
-  }
+
 
   getAllMovies = () => {
     if (this.typeMovie === true && this.typeTv === false) {
