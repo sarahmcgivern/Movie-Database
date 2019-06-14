@@ -23,6 +23,11 @@ export class AppComponent {
   title = 'Movie-Database';
   movies: Movie[];
   searchInput: string;
+  typeMovie: boolean = false;
+  typeTv: boolean = false;
+  videoType: string;
+  startYear: string = '1900';
+  endYear: string = '2019';
 
   //  ngOnInit() {
   //   this.api.detail.subscribe(data => console.log(data));
@@ -37,8 +42,16 @@ export class AppComponent {
   }
 
   getAllMovies = () => {
-    this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
-
+    if (this.typeMovie === true && this.typeTv === false) {
+      this.videoType = 'Movie'; 
+      } else {
+        if (this.typeMovie === false && this.typeTv === true){
+          this.videoType = 'Series';
+        } else this.videoType = 'Any';
+      }
+    // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
+    // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
+    this.api.getMovie(this.videoType, this.startYear, this.endYear).subscribe(data => console.log(data));
   }
 
   // ngOnInit() {
