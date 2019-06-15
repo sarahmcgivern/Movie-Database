@@ -29,6 +29,20 @@ export class AppComponent {
   videoType: string;
   startYear: string = '1900';
   endYear: string = '2019';
+  locations = [
+    {id: '23', name:'Australia'},
+    {id: '33', name: 'Canada'},
+    {id: '40', name: 'Denmark'},
+    {id: '44', name:'Finland'},
+    {id: '45', name: 'France'},
+    {id: '39', name: 'Germany'},
+    {id: '67', name: 'Netherlands'},
+    {id: '68', name: 'Norway'},
+    {id: '46', name: 'United Kingdom'},
+    {id: '78', name: 'United States'}
+  ];
+
+  selectedLocation: string='78';
 
 
   //  ngOnInit() {
@@ -56,7 +70,7 @@ export class AppComponent {
       }
     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
     // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
-    this.api.getMovie(this.videoType, this.startYear, this.endYear).subscribe(data => console.log(data));
+    this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation).subscribe(data => console.log(data));
   }
 
   // ngOnInit() {
