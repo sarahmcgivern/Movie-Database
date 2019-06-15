@@ -72,7 +72,7 @@
 </label>
 
 <h1>What country do you live in?</h1>
-<div class="dropdown">
+<!-- <div class="dropdown">
         <button class="dropbtn">Select</button>
         <div class="dropdown-content">
           <p>United States</p>
@@ -87,4 +87,9 @@
           <p>United Kingdom</p>
          
         </div>
-      </div>
+      </div> -->
+      <select [(ngModel)]="selectedLocation" ><br><br>
+        <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
+    </select><br><br>
+
+      <button (click)="getAllMovies()">Get Movies</button>
