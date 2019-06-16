@@ -44,6 +44,19 @@ export class AppComponent {
 
   selectedLocation: string='78';
 
+  genres = [
+    {genreId: '1365', genreName: 'Action & Adventure'},
+    {genreId: '5763', genreName: 'Dramas'},
+    {genreId: '6839', genreName: 'Documentaries'},
+    {genreId: '7627', genreName: 'Cult Movies'},
+    {genreId: '3979', genreName: 'Critically-acclaimed Films'},
+    {genreId: '1492', genreName: 'Sci-fi & Fantasy'},
+    {genreId: '83', genreName: 'TV Shows'},
+    {genreId: '6548', genreName: 'Comedies'}
+  ];
+
+  selectedGenre: string;
+
 
   //  ngOnInit() {
   //   this.api.detail.subscribe(data => console.log(data));
@@ -68,9 +81,11 @@ export class AppComponent {
           this.videoType = 'Series';
         } else this.videoType = 'Any';
       }
+      this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
     // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
-    this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation).subscribe(data => console.log(data));
+    this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
+    console.log(this.selectedGenre);
   }
 
   // ngOnInit() {
