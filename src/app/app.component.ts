@@ -18,7 +18,7 @@ interface ApiData {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  // styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Movie-Database';
@@ -58,9 +58,6 @@ export class AppComponent {
   selectedGenre: string;
 
 
-  //  ngOnInit() {
-  //   this.api.detail.subscribe(data => console.log(data));
-  // }
 
   constructor(private api: Api, private router: Router) {}
 
@@ -88,19 +85,5 @@ export class AppComponent {
     console.log(this.selectedGenre);
   }
 
-  // ngOnInit() {
-  //   this.api.movies.subscribe(data => this.movies = data);
-  // }
 
-  // getAllMovies = () => {
-  //   this.api
-  //   .subscribe(data => console.log('DATA FROM FACT CALL', data));
-
-  //   this.api.getMovie().subscribe((data: ApiData) => {
-  //     console.log('GETTING DATA');
-  //     this.list = data.results; 
-  //     this.errorMessage = null;
-  //   }
-
-  // };
 }
