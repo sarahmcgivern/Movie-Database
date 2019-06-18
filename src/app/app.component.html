@@ -93,3 +93,18 @@
     </select><br><br>
 
       <button (click)="getAllMovies()">Get Movies</button>
+
+      <button (click)="getAllImdbDetails()">Get IMDB Details</button>
+
+      <ul>
+        <li *ngIf='movie'>
+            <p> {{ movie.filmid }} </p>
+            <p> {{ movie.genre }} </p>
+            <p> {{ movie.plot }} </p>
+            <p> {{ movie.poster }} </p>
+            <!-- <p> {{ movie.released }} </p> -->
+            <p> {{ movie.runtime }} </p>
+        </li>
+    </ul>
+
+   
