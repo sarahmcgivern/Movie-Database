@@ -7,17 +7,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { Api } from './services/api.service';
+import { SearchComponent } from './search/search.component';
+import { ResultsComponent } from './results/results.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: AppComponent},
-  // {path: 'favorites', component: }
+  {path: '', component: SearchComponent }
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    SearchComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
