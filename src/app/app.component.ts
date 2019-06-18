@@ -18,6 +18,7 @@ interface IMDB {
   poster: string;
   released: string;
   runtime: string;
+  // imdbid: 'tt6175086';
 }
 
 interface ApiData {
@@ -49,6 +50,7 @@ export class AppComponent {
   endYear: string = '2019';
   films: object[];
   imdbId: string = '80998296';
+  baseUrl: string = 'https://www.imdb.com/title/tt6175086/';
   locations = [
     {id: '23', name:'Australia'},
     {id: '33', name: 'Canada'},
