@@ -27,5 +27,17 @@ export class Api {
         });
         return this.http.get(this.apiUrl + 'q=' + '' + '-!' + startYear + ',' + endYear + '-!0,5-!0,10-!' + genre + '-!' + videoType + '-!Any-!Any-!gt0-!{downloadable}&t=ns&cl=' + country + '&st=adv&ob=Relevance&p=1&sa=and', { headers });
     }
-    
+
+
+
+    // 'or getimdb?'
+    getImdbDetails = (imdbId) => {
+        let headers = new HttpHeaders({
+            "X-RapidAPI-Host":"unogs-unogs-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": "20e97e1117msh94521a8d54a51d0p1a1eecjsn0736ce7afe60"
+        });
+        return this.http.get(this.apiUrl + 't=getimdb' + '&q=' + imdbId, { headers });
+    }
+
+
 }
