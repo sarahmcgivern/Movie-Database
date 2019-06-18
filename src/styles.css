@@ -19,8 +19,19 @@ body {
 }
 
 .btn-primary {
-  width: 100%;
+  width: 99%;
   margin: 10px;
+  background-color: #11D3CE;
+}
+
+.btn-outline-success {
+  color: white;
+  background-color: #11D3CE;
+  border: #007bff;
+}
+
+.btn-outline-success:hover {
+  background-color: #007bff;
 }
 
 .form-container {
@@ -28,6 +39,10 @@ body {
 }
 
 h2 {
+  text-align: center;
+}
+
+h1 {
   text-align: center;
 }
 
@@ -40,3 +55,24 @@ h2 {
   border: none;
 }
 
+
+
+
+
+/* Extra small devices (phones, 400px and down) */
+@media only screen and (max-width: 400px) {
+  body {
+    display: flex;
+    flex-flow: column;
+  }
+}  
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
