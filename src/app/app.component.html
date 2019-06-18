@@ -1,93 +1,66 @@
-<!-- 
-<input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a movie"/>
 
-<button (click)="getAllMovies()">Get Movies</button>
 
-<div  class="container">
-    <div  class="movie_div"  *ngFor='let movie of list'>
-        <h1 class='movie_heading'>{{ movie.title }}</h1>
-        <div class="image-container">
-        <img class='movie_img' src= {{movie.image}} alt="">
-        </div> 
-        <p> {{ movie.synopsis }}</p>
-    </div>
-</div> -->
-
-<h1>Are you looking for...</h1>
-<label class="movie">Movie
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<label class="tv">TV
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<label class="tv">I could do either...
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<h1>Pick a year</h1>
-<label class="classic">Classic
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<label class="contemporary">Contemporary
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<label class="surprise">Surprise me
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<h1>I'm in the mood for something...</h1>
-<label class="rom-com">Sassy
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-    
-<label class="action">Action-packed
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<label class="crime">Bloody
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<label class="comedy">LOL
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<label class="drama">Dramatic
-    <input type="checkbox" checked="checked">
-    <span class="checkmark"></span>
-</label>
-
-<h1>What country do you live in?</h1>
-<!-- <div class="dropdown">
-        <button class="dropbtn">Select</button>
-        <div class="dropdown-content">
-          <p>United States</p>
-          <p>Norway</p>
-          <p>Canada</p>
-          <p>Denmark</p>
-          <p>Sweden</p>
-          <p>Netherlands</p>
-          <p>Australia</p>
-          <p>Finland</p>
-          <p>Germany</p>
-          <p>United Kingdom</p>
-         
+<h2>Pick one</h2>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-primary">Movie</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary">TV</button>
+          </div>
+          <!-- <div class="w-100"></div> -->
+          <div class="col">
+            <button type="button" class="btn btn-primary">Either</button>
+          </div>
         </div>
-      </div> -->
+    </div>
+
+<h2>Pick a year</h2>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-primary">Classic</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary">Contemporary</button>
+          </div>
+          <!-- <div class="w-100"></div> -->
+          <div class="col">
+            <button type="button" class="btn btn-primary">Surprise Me</button>
+          </div>
+        </div>
+    </div>
+
+<h2>I'm in the mood for something...</h2>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-primary">Thrilling</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary">LOL</button>
+          </div>
+          <!-- <div class="w-100"></div> -->
+          <div class="col">
+            <button type="button" class="btn btn-primary">Bloody</button>
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+            <button type="button" class="btn btn-primary">Dramatic</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary">Dramatic</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary">Dramatic</button>
+          </div>
+        </div>
+    </div>
+
+
+<h2>What country do you live in?</h2>
+
       <select [(ngModel)]="selectedLocation" ><br><br>
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
     </select><br><br>
@@ -107,4 +80,3 @@
         </li>
     </ul>
 
-   
