@@ -11,16 +11,12 @@ interface Movie {
   movie: MovieInfo[];
 }
 
-// interface IMDBInfo {
-
-// }
-
 interface IMDB {
   filmid: string;
   genre: string;
   plot: string;
   poster: string;
-  // released: Url;
+  released: string;
   runtime: string;
 }
 
@@ -52,9 +48,7 @@ export class AppComponent {
   startYear: string = '1900';
   endYear: string = '2019';
   films: object[];
-
   imdbId: string = '80998296';
-
   locations = [
     {id: '23', name:'Australia'},
     {id: '33', name: 'Canada'},
@@ -143,15 +137,10 @@ getAllImdbDetails = () => {
         this.videoType = 'Series';
       } else this.videoType = 'Any';
     }
-  // this.api.getImdbDetails(this.imdbId).subscribe(data => console.log(data));
    this.api.getImdbDetails(this.imdbId).subscribe(data => {
      this.movie=data;
     console.log(this.movie)
    })
-
-  // (data:ApiData) => {
-  //   this.list = data;
-  // }
 }
 
   // ngOnInit() {
@@ -167,6 +156,4 @@ getAllImdbDetails = () => {
   //     this.list = data.results; 
   //     this.errorMessage = null;
   //   }
-
-
 }
