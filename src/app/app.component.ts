@@ -22,13 +22,15 @@ interface ApiData {
 })
 export class AppComponent {
   title = 'Movie-Database';
-  // movies: Movie[];
+  movies: Movie[];
   searchInput: string;
   typeMovie: boolean = false;
   typeTv: boolean = false;
   videoType: string;
   startYear: string = '1900';
   endYear: string = '2019';
+  list: object[];
+  films: object[];
   locations = [
     {id: '23', name:'Australia'},
     {id: '33', name: 'Canada'},
@@ -62,12 +64,15 @@ export class AppComponent {
   constructor(private api: Api, private router: Router) {}
 
 
-    // getAllMovies = () => {
-    //   this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
+    // searchAllMovies = () => {
+    //   this.api.searchMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
     // }
     
-
-
+    searchAllMovies = () => {
+      this.api.searchMovie(this.searchInput).subscribe((data:any) => {
+        this.list = data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()));
+    });
+  };
 
 
   getAllMovies = () => {
@@ -83,7 +88,26 @@ export class AppComponent {
     // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
     this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
     console.log(this.selectedGenre);
+    // this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
+    // this.films = (this.selectedGenre);
   }
 
+//   getAllMovies = () => {
+//     if (this.typeMovie === true && this.typeTv === false) {
+//       this.videoType = 'Movie'; 
+//       } else {
+//         if (this.typeMovie === false && this.typeTv === true){
+//           this.videoType = 'Series';
+//         } else this.videoType = 'Any';
+//       }
+//       this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
+//     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
+//     // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
+//     this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe((data:any) => {
+//     this.films = this.selectedGenre;
+//   });
+// };
+
+ 
 
 }

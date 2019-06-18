@@ -2,7 +2,7 @@ body {
     color: white;
     height: 100vh;
     /* display: flex; */
-    margin: 10px;
+    margin: 0 auto;
     font-family: sans-serif;
     background-image: linear-gradient(-215deg, 
     rgb(0, 191, 255), 
@@ -12,4 +12,22 @@ body {
 
 .btn-primary {
   width: 100%;
+  margin-top: 10px;
+}
+
+.form-container {
+  margin: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.question-container {
+  border: 1px solid black;
+  margin: 20px 60px;
+}
+
+.btn-primary btn-lg btn-block {
+  border: none;
 }

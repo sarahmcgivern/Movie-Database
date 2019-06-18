@@ -1,6 +1,17 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">flixme</a>
+    <form class="form-inline">
+      <input [(ngModel)]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Already have a title in mind?" aria-label="Search" [ngModelOptions]="{standalone: true}"/>
+      <!-- <input [(ngModel)]="searchInput" class="searchInput" type="text" placeholder="Search for a movie"/> -->
+      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+  <p *ngFor="let movie of list"> {{ movie.title }}</p>
+<div class="form-container">
+    <!-- <button type="button" class="btn btn-primary btn-lg btn-block">Pick one</button> -->
+       
+<h2>What are you looking for?</h2>
 
-
-<h2>Pick one</h2>
     <div class="container">
         <div class="row">
           <div class="col">
@@ -67,4 +78,7 @@
 
       <button (click)="getAllMovies()">Get Movies</button>
 
+      <p *ngFor='let movie of films'> {{ movie.title }} </p>
+
    
+    </div>  
