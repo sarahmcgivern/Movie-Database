@@ -46,6 +46,14 @@ h1 {
   text-align: center;
 }
 
+select {
+  font-size: 25px;
+  color: white;
+  background-color: #11D3CE;
+  width: 50%;
+  padding: 5px;
+}
+
 .question-container {
   border: 1px solid black;
   margin: 20px 60px;
