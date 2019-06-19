@@ -145,7 +145,6 @@ select {
   width: 100%;
   max-width: 160px;
   margin: auto;
-
 }
 
 .movie_heading {
@@ -160,6 +159,40 @@ select {
 .imdb_button {
   width: 100%;
 }
+
+.imdb_results_container {
+  display: flex;
+  flex-direction: row;  
+  flex-wrap: wrap;
+  width: 100%;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-family: Poppins, sans-serif;
+  font-weight: lighter;
+  justify-content: center;
+}
+
+.imdb_results_div {
+  /* background-color: rgb(237, 237, 237); */
+  background-color: rgb(72, 63, 164);
+  width: 180px;
+  padding: 20px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  font-size: 10px;
+  flex-wrap: wrap;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-family: Poppins, sans-serif;
+  font-weight: lighter;
+}
+
+.imdb_img {
+  width: 100%;
+  max-width: 160px;
+  margin: auto;
+}
+
 /* Extra small devices (phones, 400px and down) */
 @media only screen and (max-width: 400px) {
   body {
