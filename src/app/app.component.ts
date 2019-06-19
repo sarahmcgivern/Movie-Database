@@ -101,8 +101,15 @@ export class AppComponent {
       // this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
     // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
-    this.api.getMovie(this.mediaType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
-    console.log(this.selectedGenre);
+    
+    // this.api.getMovie(this.mediaType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
+    // console.log(this.selectedGenre);
+
+    this.api.getMovie(this.mediaType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe((data:any) => {
+        this.list = data.ITEMS;
+    });
+    
+
     // this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
     // this.films = (this.selectedGenre);
   }
