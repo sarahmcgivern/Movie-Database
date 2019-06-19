@@ -112,6 +112,7 @@ export class AppComponent {
 
     this.api.getMovie(this.mediaType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe((data:any) => {
         this.list = data.ITEMS;
+        console.log(data.ITEMS);
     });
     
 

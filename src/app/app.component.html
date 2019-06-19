@@ -1,4 +1,5 @@
-<nav class="navbar navbar-light bg-light">
+<!-- **navbar** -->
+<nav class="navbar navbar-light bg-light navbar-custom">
     <a class="navbar-brand">flixme</a>
     <form class="form-inline">
       <input [(ngModel)]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search by title..." aria-label="Search" [ngModelOptions]="{standalone: true}"/>
@@ -8,7 +9,6 @@
   </nav>
 
   <!-- <app-search></app-search> -->
-  <!-- <p *ngFor="let movie of list"> {{ movie.title }}</p> -->
 
 <!-- 
 **modal**
@@ -20,27 +20,7 @@
     </div>
   </div> -->
 
-
-
-
-
-
-<div class="form-container">
-       
-
-<h2>What are you looking for?</h2>
-
-  <div  class="answers_div">
-  
-    <div class="image-container">
-    <!-- <img class='recipe_img' src={{recipe.recipe.image}} alt=""> -->
-    <!-- <img class='genre_img' src="./images/Men-In-Black.jpg" alt=""> -->
-    <!-- <img class='genre_img' src="https://dgit.com/wp-content/uploads/2018/04/Men-in-Black-reboot-1024x512.jpg" alt=""> -->
-    </div>  
-
-    <div class="container">
-
-
+<!-- **old block buttons** -->
     <!-- <div class="container">
 
         <div class="row">
@@ -57,13 +37,18 @@
         </div>
     </div> -->
 
+<div class="form-container">
+  <div class= "header_div">  
+  <h2>I'm looking for a...</h2>
+  </div>   
+   
     <div class="container">
             <div class="row">
               <div class="col">
-                <input type="radio" name="mediaType" value="Movies" (click)="setMediaType('Movie')">Movies
+                <input type="radio" name="mediaType" value="Movies" (click)="setMediaType('Movie')">Movie
               </div>
               <div class="col">
-                    <input type="radio" name="mediaType" value="TV" (click)="setMediaType('Series')">TV
+                    <input type="radio" name="mediaType" value="TV" (click)="setMediaType('Series')">TV Show
               </div>
               <!-- <div class="w-100"></div> -->
               <div class="col">
@@ -73,10 +58,10 @@
         </div>
 
 
+  <!-- </div> -->
+  <div class= "header_div"> 
+<h2>I'd prefer a...</h2>
   </div>
-
-<h2>What year were you thinking?</h2>
-
     <div class="container">
         <div class="row">
           <div class="col">
@@ -92,12 +77,9 @@
         </div>
     </div>
 
-    <!-- <div class="col">
-        <button type="button" class="btn btn-primary">
-        <h2>I'm in the mood for...</h2></button>
-    </div> -->
+    <div class= "header_div">    
 <h2>I'm in the mood for...</h2>
-
+    </div>
 
     <div class="container">
         <div class="row">
@@ -126,21 +108,14 @@
     </div>
 
 
-
-<h2>What country do you live in?</h2>
-
+    <div class= "header_div"> 
+<h2>I live in...</h2>
+</div>
       <h1><select [(ngModel)]="selectedLocation" ><br><br>
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
     </select></h1><br>
 
-    <div class="col">
-
-            <button (click)="getAllMovies()" id="suggestions" type="button" class="btn btn-primary">See Suggestions</button>
-          </div>
-      
-      <p *ngFor='let movie of films'> {{ movie.title }} </p>
-
-      <button (click)="getAllImdbDetails()">Get IMDB Details</button>
+   
 
       <ul>
         <li *ngIf='movie'>
@@ -152,17 +127,15 @@
         </li>
     </ul>
 
+
+  </div>
+
+  <div class="button_div">
             <button (click)="getAllMovies()" type="button" class="btn btn-primary">See Suggestions</button>
-
-
-          </div>
-          <p *ngFor="let movie of list"> {{ movie.title }}</p>
-            <!-- <button (click)="getAllMovies()">Get Movies</button> -->
             
-            <!-- <p *ngFor='let movie of films'> {{ movie.title }} </p> -->
+            <!-- <button (click)="getAllImdbDetails()" type="button" class="btn btn-primary">Get IMDB Details</button> -->
             
-            <button (click)="getAllImdbDetails()" type="button" class="btn btn-primary">Get IMDB Details</button>
-            
+  </div>
             <ul>
               <li *ngIf='movie'>
                 <p> title will go here when pulled from search results! <br>{{ movie.filmid }} ({{movie.genre}})</p>
@@ -173,7 +146,7 @@
                 <p> view on <a href="{{ baseUrl }}">imdb</a></p>
               </li>
             </ul>
-          </div>
+        
 
 
     <!-- search results container -->
@@ -182,6 +155,8 @@
         <!-- <p>{{ movie.title }}</p> -->
         <div class="image-container">
         <img class='movie_img' src={{movie.image}} alt="">
-      </div>  
-        <h5>{{ movie.title }}</h5>
+        </div>  
+        <h5 class="movie_heading">{{ movie.title }}</h5>
+        <button (click)="getAllImdbDetails()" type="button" class="btn btn-primary imdb_button">Get IMDB Details</button>
+    </div>
     </div>
