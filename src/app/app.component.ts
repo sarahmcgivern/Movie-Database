@@ -45,8 +45,8 @@ export class AppComponent {
   typeMovie: boolean = false;
   typeTv: boolean = false;
   videoType: string;
-  startYear: string = '1900';
-  endYear: string = '2019';
+  startYear: string;
+  endYear: string;
   films: object[];
   imdbId: string = '80998296';
   locations = [
@@ -76,6 +76,7 @@ export class AppComponent {
   ];
 
   selectedGenre: string;
+  mediaType: string;
 
 
 
@@ -94,17 +95,11 @@ export class AppComponent {
 
 
   getAllMovies = () => {
-    if (this.typeMovie === true && this.typeTv === false) {
-      this.videoType = 'Movie'; 
-      } else {
-        if (this.typeMovie === false && this.typeTv === true){
-          this.videoType = 'Series';
-        } else this.videoType = 'Any';
-      }
-      this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
+    
+      // this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
     // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
-    this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
+    this.api.getMovie(this.mediaType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
     console.log(this.selectedGenre);
     // this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
     // this.films = (this.selectedGenre);
@@ -130,17 +125,38 @@ export class AppComponent {
  
 
 getAllImdbDetails = () => {
-  if (this.typeMovie === true && this.typeTv === false) {
-    this.videoType = 'Movie'; 
-    } else {
-      if (this.typeMovie === false && this.typeTv === true){
-        this.videoType = 'Series';
-      } else this.videoType = 'Any';
-    }
    this.api.getImdbDetails(this.imdbId).subscribe(data => {
      this.movie=data;
     console.log(this.movie)
    })
+}
+setMediaType = (type) => {
+  this.mediaType = type;
+  console.log(this.mediaType);
+}
+
+setDateRange = (dateRange) => {
+  if (dateRange === 'classic'){
+    this.startYear = '1900';
+    this.endYear = '1980';
+  };
+  if (dateRange === 'contemporary'){
+    this.startYear = '1981';
+    this.endYear = '2019';
+  };
+  if (dateRange === 'suprise'){
+    this.startYear = '1900';
+    this.endYear = '2019';
+  }
+}
+
+setGenre = (genre) => {
+  if (genre === 'Action') {this.selectedGenre = '801362'};
+  if (genre === 'Comedy') {this.selectedGenre = '6548'};
+  if (genre === 'Romance') {this.selectedGenre = '8883'};
+  if (genre === 'Drama') {this.selectedGenre = '5763'};
+  if (genre ==='Horror' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Horror' && this.mediaType === 'Series') this.selectedGenre = '83059'};
+  if (genre === 'Children' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Children' && this.mediaType === 'Series') this.selectedGenre = '11177'};
 }
 
   // ngOnInit() {

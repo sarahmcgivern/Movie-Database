@@ -10,7 +10,7 @@
        
 <h2>What are you looking for?</h2>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
           <div class="col">
             <button type="button" class="btn btn-primary">Movie</button>
@@ -18,25 +18,40 @@
           <div class="col">
             <button type="button" class="btn btn-primary">TV</button>
           </div>
-          <!-- <div class="w-100"></div> -->
+          
           <div class="col">
             <button type="button" class="btn btn-primary">Either</button>
           </div>
         </div>
-    </div>
+    </div> -->
+
+    <div class="container">
+            <div class="row">
+              <div class="col">
+                <input type="radio" name="mediaType" value="Movies" (click)="setMediaType('Movie')">Movies
+              </div>
+              <div class="col">
+                    <input type="radio" name="mediaType" value="TV" (click)="setMediaType('Series')">TV
+              </div>
+              <!-- <div class="w-100"></div> -->
+              <div class="col">
+                    <input type="radio" name="mediaType" value="Either" (click)="setMediaType('Any')">Either
+              </div>
+            </div>
+        </div>
 
 <h2>Pick a year</h2>
     <div class="container">
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-primary">Classic</button>
+                <input type="radio" name="dateRange" value="classic" (click)="setDateRange('classic')">Classic
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Contemporary</button>
+                <input type="radio" name="dateRange" value="contemporary" (click)="setDateRange('contemporary')">Contemporary
           </div>
           <!-- <div class="w-100"></div> -->
           <div class="col">
-            <button type="button" class="btn btn-primary">Surprise Me</button>
+                <input type="radio" name="dateRange" value="suprise" (click)="setDateRange('suprise')">Suprise Me
           </div>
         </div>
     </div>
@@ -45,24 +60,24 @@
     <div class="container">
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-primary">Thrilling</button>
+                <input type="radio" name="mood" value="Action" (click)="setGenre('Action')">Action
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">LOL</button>
+                <input type="radio" name="mood" value="Comedy" (click)="setGenre('Comedy')">Comedy
           </div>
           <!-- <div class="w-100"></div> -->
           <div class="col">
-            <button type="button" class="btn btn-primary">Bloody</button>
+                <input type="radio" name="mood" value="Romance" (click)="setGenre('Romance')">Romance
           </div>
           <div class="w-100"></div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Dramatic</button>
+                <input type="radio" name="mood" value="Drama" (click)="setGenre('Drama')">Drama
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Dramatic</button>
+                <input type="radio" name="mood" value="Horror" (click)="setGenre('Horror')">Horror
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Dramatic</button>
+                <input type="radio" name="mood" value="Children" (click)="setGenre('Children')">Children & Family
           </div>
         </div>
     </div>
@@ -78,6 +93,7 @@
             <button (click)="getAllMovies()" type="button" class="btn btn-primary">See Suggestions</button>
           </div>
       <!-- <button (click)="getAllMovies()">Get Movies</button> -->
+
 
       <p *ngFor='let movie of films'> {{ movie.title }} </p>
 
