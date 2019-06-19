@@ -6,6 +6,7 @@
       <!-- <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button> -->
     </form>
   </nav>
+
   <!-- <app-search></app-search> -->
   <!-- <p *ngFor="let movie of list"> {{ movie.title }}</p> -->
 
@@ -38,6 +39,10 @@
     </div>  
 
     <div class="container">
+
+
+    <!-- <div class="container">
+
         <div class="row">
           <div class="col">
             <button type="button" class="btn btn-primary">Movie</button>
@@ -45,68 +50,91 @@
           <div class="col">
             <button type="button" class="btn btn-primary">TV</button>
           </div>
-          <!-- <div class="w-100"></div> -->
+          
           <div class="col">
             <button type="button" class="btn btn-primary">Either</button>
           </div>
         </div>
-    </div>
+    </div> -->
+
+    <div class="container">
+            <div class="row">
+              <div class="col">
+                <input type="radio" name="mediaType" value="Movies" (click)="setMediaType('Movie')">Movies
+              </div>
+              <div class="col">
+                    <input type="radio" name="mediaType" value="TV" (click)="setMediaType('Series')">TV
+              </div>
+              <!-- <div class="w-100"></div> -->
+              <div class="col">
+                    <input type="radio" name="mediaType" value="Either" (click)="setMediaType('Any')">Either
+              </div>
+            </div>
+        </div>
+
 
   </div>
 
 <h2>What year were you thinking?</h2>
+
     <div class="container">
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-primary">Classic</button>
+                <input type="radio" name="dateRange" value="classic" (click)="setDateRange('classic')">Classic
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Contemporary</button>
+                <input type="radio" name="dateRange" value="contemporary" (click)="setDateRange('contemporary')">Contemporary
           </div>
           <!-- <div class="w-100"></div> -->
           <div class="col">
-            <button type="button" class="btn btn-primary">Surprise Me</button>
+                <input type="radio" name="dateRange" value="suprise" (click)="setDateRange('suprise')">Suprise Me
           </div>
         </div>
     </div>
+
     <!-- <div class="col">
         <button type="button" class="btn btn-primary">
         <h2>I'm in the mood for...</h2></button>
     </div> -->
 <h2>I'm in the mood for...</h2>
+
+
     <div class="container">
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-primary">Action</button>
+                <input type="radio" name="mood" value="Action" (click)="setGenre('Action')">Action
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Comedy</button>
+                <input type="radio" name="mood" value="Comedy" (click)="setGenre('Comedy')">Comedy
           </div>
           <!-- <div class="w-100"></div> -->
           <div class="col">
-            <button type="button" class="btn btn-primary">Romance</button>
+                <input type="radio" name="mood" value="Romance" (click)="setGenre('Romance')">Romance
           </div>
           <div class="w-100"></div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Drama</button>
+                <input type="radio" name="mood" value="Drama" (click)="setGenre('Drama')">Drama
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Horror</button>
+                <input type="radio" name="mood" value="Horror" (click)="setGenre('Horror')">Horror
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Children & Family</button>
+                <input type="radio" name="mood" value="Children" (click)="setGenre('Children')">Children & Family
+
           </div>
         </div>
     </div>
 
 
+
 <h2>What country do you live in?</h2>
 
-      <select [(ngModel)]="selectedLocation" ><br><br>
+      <h1><select [(ngModel)]="selectedLocation" ><br><br>
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
-    </select><br><br>
+    </select></h1><br>
 
     <div class="col">
+
             <button (click)="getAllMovies()" id="suggestions" type="button" class="btn btn-primary">See Suggestions</button>
           </div>
       
@@ -124,6 +152,28 @@
         </li>
     </ul>
 
+            <button (click)="getAllMovies()" type="button" class="btn btn-primary">See Suggestions</button>
+
+
+          </div>
+          <p *ngFor="let movie of list"> {{ movie.title }}</p>
+            <!-- <button (click)="getAllMovies()">Get Movies</button> -->
+            
+            <!-- <p *ngFor='let movie of films'> {{ movie.title }} </p> -->
+            
+            <button (click)="getAllImdbDetails()" type="button" class="btn btn-primary">Get IMDB Details</button>
+            
+            <ul>
+              <li *ngIf='movie'>
+                <p> title will go here when pulled from search results! <br>{{ movie.filmid }} ({{movie.genre}})</p>
+                <p><img src="{{ movie.poster }}" target="_blank" class="url"/></p>
+                <p> plot: {{ movie.plot }} </p>
+                <p> release date: {{ movie.released }} </p>
+                <p> runtime: {{ movie.runtime }} </p>
+                <p> view on <a href="{{ baseUrl }}">imdb</a></p>
+              </li>
+            </ul>
+          </div>
 
 
     <!-- search results container -->
