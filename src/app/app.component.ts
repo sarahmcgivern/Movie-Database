@@ -52,7 +52,7 @@ export class AppComponent {
   endYear: string;
   films: object[];
   imdbId: string = '80998296';
-  baseUrl: string = 'https://www.imdb.com/title/tt6175086/';
+  baseUrl: string = 'https://www.imdb.com/title/';
   locations = [
     {id: '23', name:'Australia'},
     {id: '33', name: 'Canada'},
@@ -139,8 +139,8 @@ export class AppComponent {
 
  
 
-getAllImdbDetails = () => {
-   this.api.getImdbDetails(this.imdbId).subscribe(data => {
+getAllImdbDetails = (netflixid) => {
+   this.api.getImdbDetails(netflixid).subscribe(data => {
      this.movie=data;
     console.log(this.movie)
    })
