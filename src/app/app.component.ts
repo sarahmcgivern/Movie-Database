@@ -40,6 +40,8 @@ export class AppComponent {
   movie:any;
   // movies: Movie[];
   list: object[];
+  modalMovie;
+  modalIndex: number;
 
   searchInput: string;
   typeMovie: boolean = false;
@@ -92,6 +94,9 @@ export class AppComponent {
     });
   };
 
+  show = () => {
+    this.modalMovie = this.list;
+  }
 
   getAllMovies = () => {
     if (this.typeMovie === true && this.typeTv === false) {
@@ -143,17 +148,4 @@ getAllImdbDetails = () => {
    })
 }
 
-  // ngOnInit() {
-  //   this.api.movies.subscribe(data => this.movies = data);
-  // }
-
-  // getAllMovies = () => {
-  //   this.api
-  //   .subscribe(data => console.log('DATA FROM FACT CALL', data));
-
-  //   this.api.getMovie().subscribe((data: ApiData) => {
-  //     console.log('GETTING DATA');
-  //     this.list = data.results; 
-  //     this.errorMessage = null;
-  //   }
 }
