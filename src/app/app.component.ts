@@ -43,7 +43,6 @@ export class AppComponent {
   list: object[];
   modalMovie;
   modalIndex: number;
-
   searchInput: string;
   typeMovie: boolean = false;
   typeTv: boolean = false;
@@ -115,28 +114,7 @@ export class AppComponent {
         console.log(data.ITEMS);
     });
     
-
-    // this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
-    // this.films = (this.selectedGenre);
   }
-
-
-//   getAllMovies = () => {
-//     if (this.typeMovie === true && this.typeTv === false) {
-//       this.videoType = 'Movie'; 
-//       } else {
-//         if (this.typeMovie === false && this.typeTv === true){
-//           this.videoType = 'Series';
-//         } else this.videoType = 'Any';
-//       }
-//       this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
-//     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
-//     // this.api.getMovie(this.searchInput).subscribe(data => console.log(data));
-//     this.api.getMovie(this.videoType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe((data:any) => {
-//     this.films = this.selectedGenre;
-//   });
-// };
-
  
 
 getAllImdbDetails = (netflixid) => {

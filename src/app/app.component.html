@@ -108,7 +108,7 @@
 
 
     <div class= "header_div"> 
-<h2>I live in...</h2>
+<h2>I'm currently viewing in...</h2>
 </div>
       <h1><select [(ngModel)]="selectedLocation" ><br><br>
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
@@ -126,6 +126,7 @@
           <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}" target="_blank" class="url">imdb</a></p>
         </li>
     </ul>
+
 
 
   </div>
@@ -150,7 +151,7 @@
 
 
     <!-- search results container -->
-    <div  class="search_results_container">
+    <div class="search_results_container">
       <div  class="search_results_div"  *ngFor='let movie of list'>
         <!-- <p>{{ movie.title }}</p> -->
         <div class="image-container">
@@ -160,3 +161,35 @@
         <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button">Get IMDB Details</button>
     </div>
     </div>
+
+    <ul>
+        <li *ngIf='movie'>
+          <p> {{ movie.filmid }} ({{movie.genre}})</p>
+          <div class="imdb-image-container">
+          <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
+          </div>
+          <p> plot: {{ movie.plot }} </p>
+          <p> released: {{ movie.released }} </p>
+          <p> movie length: {{ movie.runtime }} </p>
+          <p> view on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+        </li>
+    </ul>
+
+
+
+  <!-- <div class="imdb_results_container">
+    <div class="imdb_results_div">
+    <ul>
+      <li *ngIf='movie'>
+        <p> {{ movie.filmid }} ({{movie.genre}})</p>
+        <div class="imdb-image-container">
+        <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
+        </div>
+        <p> plot: {{ movie.plot }} </p>
+        <p> released: {{ movie.released }} </p>
+        <p> movie length: {{ movie.runtime }} </p>
+        <p> view on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+      </li>
+  </ul>
+  </div>
+</div> -->
