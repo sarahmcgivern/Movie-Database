@@ -18,7 +18,6 @@
         <h1>{{ this.modalMovie.title }}</h1>
       </div>
     </div>
-  </div> -->
 
 <!-- **old block buttons** -->
     <!-- <div class="container">
@@ -115,6 +114,21 @@
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
     </select></h1><br>
 
+   
+
+      <ul>
+        <li *ngIf='movie'>
+          <p> {{ movie.filmid }} ({{movie.genre}})</p>
+          <p><img src="{{ movie.poster }}" target="_blank" class="url"/></p>
+          <p> plot: {{ movie.plot }} </p>
+          <p> released: {{ movie.released }} </p>
+          <p> movie length: {{ movie.runtime }} </p>
+          <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}" target="_blank" class="url">imdb</a></p>
+        </li>
+    </ul>
+
+
+
   </div>
 
   <div class="button_div">
@@ -130,7 +144,7 @@
                 <p> plot: {{ movie.plot }} </p>
                 <p> release date: {{ movie.released }} </p>
                 <p> runtime: {{ movie.runtime }} </p>
-                <p> view on <a href="{{ baseUrl }}">imdb</a></p>
+                <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}">imdb</a></p>
               </li>
             </ul> -->
         
@@ -144,7 +158,7 @@
         <img class='movie_img' src={{movie.image}} alt="">
         </div>  
         <h5 class="movie_heading">{{ movie.title }}</h5>
-        <button (click)="getAllImdbDetails()" type="button" class="btn btn-primary imdb_button">Get IMDB Details</button>
+        <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button">Get IMDB Details</button>
     </div>
     </div>
 
