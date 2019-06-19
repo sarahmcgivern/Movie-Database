@@ -7,7 +7,8 @@
   </nav>
   <p *ngFor="let movie of list"> {{ movie.title }}</p>
 <div class="form-container">
-       
+
+<br>
 <h2>What are you looking for?</h2>
 
     <div class="container">
@@ -25,6 +26,7 @@
         </div>
     </div>
 
+<br>
 <h2>Pick a year</h2>
     <div class="container">
         <div class="row">
@@ -41,6 +43,7 @@
         </div>
     </div>
 
+<br>
 <h2>I'm in the mood for something...</h2>
     <div class="container">
         <div class="row">
@@ -68,11 +71,12 @@
     </div>
 
 
+<br>
 <h2>What country do you live in?</h2>
 
       <h1><select [(ngModel)]="selectedLocation" ><br><br>
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
-    </select></h1><br><br>
+    </select></h1><br>
 
     <div class="col">
             <button (click)="getAllMovies()" type="button" class="btn btn-primary">See Suggestions</button>
