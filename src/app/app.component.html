@@ -2,16 +2,47 @@
     <a class="navbar-brand">flixme</a>
     <form class="form-inline">
       <input [(ngModel)]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search by title..." aria-label="Search" [ngModelOptions]="{standalone: true}"/>
-      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button>
+      <!-- <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button> -->
     </form>
   </nav>
- 
-<div class="form-container">
 
-<br>
+  <!-- <app-search></app-search> -->
+  <!-- <p *ngFor="let movie of list"> {{ movie.title }}</p> -->
+
+<!-- 
+**modal**
+    <div *ngIf="this.modalMovie" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">  
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <h1>{{ this.modalMovie.title }}</h1>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+<div class="form-container">
+       
+
 <h2>What are you looking for?</h2>
 
+  <div  class="answers_div">
+  
+    <div class="image-container">
+    <!-- <img class='recipe_img' src={{recipe.recipe.image}} alt=""> -->
+    <!-- <img class='genre_img' src="./images/Men-In-Black.jpg" alt=""> -->
+    <!-- <img class='genre_img' src="https://dgit.com/wp-content/uploads/2018/04/Men-in-Black-reboot-1024x512.jpg" alt=""> -->
+    </div>  
+
+    <div class="container">
+
+
     <!-- <div class="container">
+
         <div class="row">
           <div class="col">
             <button type="button" class="btn btn-primary">Movie</button>
@@ -41,8 +72,11 @@
             </div>
         </div>
 
-<br>
-<h2>Pick a year</h2>
+
+  </div>
+
+<h2>What year were you thinking?</h2>
+
     <div class="container">
         <div class="row">
           <div class="col">
@@ -58,8 +92,13 @@
         </div>
     </div>
 
-<br>
-<h2>I'm in the mood for something...</h2>
+    <!-- <div class="col">
+        <button type="button" class="btn btn-primary">
+        <h2>I'm in the mood for...</h2></button>
+    </div> -->
+<h2>I'm in the mood for...</h2>
+
+
     <div class="container">
         <div class="row">
           <div class="col">
@@ -81,12 +120,13 @@
           </div>
           <div class="col">
                 <input type="radio" name="mood" value="Children" (click)="setGenre('Children')">Children & Family
+
           </div>
         </div>
     </div>
 
 
-<br>
+
 <h2>What country do you live in?</h2>
 
       <h1><select [(ngModel)]="selectedLocation" ><br><br>
@@ -94,7 +134,26 @@
     </select></h1><br>
 
     <div class="col">
+
+            <button (click)="getAllMovies()" id="suggestions" type="button" class="btn btn-primary">See Suggestions</button>
+          </div>
+      
+      <p *ngFor='let movie of films'> {{ movie.title }} </p>
+
+      <button (click)="getAllImdbDetails()">Get IMDB Details</button>
+
+      <ul>
+        <li *ngIf='movie'>
+          <p> {{ movie.filmid }} ({{movie.genre}})</p>
+          <p><img src="{{ movie.poster }}" target="_blank" class="url"/></p>
+          <p> plot: {{ movie.plot }} </p>
+          <p> released: {{ movie.released }} </p>
+          <p> movie length: {{ movie.runtime }} </p>
+        </li>
+    </ul>
+
             <button (click)="getAllMovies()" type="button" class="btn btn-primary">See Suggestions</button>
+
 
           </div>
           <p *ngFor="let movie of list"> {{ movie.title }}</p>
@@ -116,3 +175,13 @@
             </ul>
           </div>
 
+
+    <!-- search results container -->
+    <div  class="search_results_container">
+      <div  class="search_results_div"  *ngFor='let movie of list'>
+        <!-- <p>{{ movie.title }}</p> -->
+        <div class="image-container">
+        <img class='movie_img' src={{movie.image}} alt="">
+      </div>  
+        <h5>{{ movie.title }}</h5>
+    </div>

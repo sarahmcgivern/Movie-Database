@@ -4,23 +4,29 @@ body {
     /* display: flex; */
     margin: 0 auto;
     font-family: sans-serif;
-    background-image: linear-gradient(-215deg, 
+    /* background-image: linear-gradient(-215deg, 
     rgb(0, 191, 255), 
     rgb(45, 148, 243) 55%, 
-    rgb(145, 54, 161217));
+    rgb(145, 54, 161217)); */
+    background-color:  rgb(45, 148, 243);
   }
 
-.bg-light {
-  background-image: linear-gradient(-215deg, 
-  rgb(0, 191, 255), 
-  rgb(45, 148, 243) 55%, 
-  rgb(145, 54, 161217));
+/* .bg-light {
+  background-color: red;
   border: none;
+} */
+.bg-light {
+  background-color: red;
 }
 
 .btn-primary {
   width: 99%;
   margin: 10px;
+
+  border: 2px solid rgb(45, 148, 243);
+  background-color: white;
+  color: rgb(45, 148, 243);
+
   background-color: #11D3CE;
 }
 
@@ -32,6 +38,7 @@ body {
 
 .btn-outline-success:hover {
   background-color: #007bff;
+
 }
 
 .form-container {
@@ -64,6 +71,14 @@ select {
 }
 
 
+.btn-block {
+  border: 2px solid  rgb(45, 148, 243);
+  background-color: white;
+  color: rgb(45, 148, 243);
+  margin: 60px;
+}
+
+
 /* .col {
   background-color: blueviolet;
   
@@ -90,4 +105,5 @@ select {
 @media only screen and (min-width: 1200px) {
 
 }
+
 
