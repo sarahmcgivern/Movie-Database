@@ -2,7 +2,7 @@
 <nav class="navbar navbar-light bg-light navbar-custom">
     <a class="navbar-brand">flixme</a>
     <form class="form-inline">
-      <input [(ngModel)]="searchInput" class="form-control mr-sm-2" type="text" placeholder="Search by title..." aria-label="Search" [ngModelOptions]="{standalone: true}"/>
+      <input [(ngModel)]="searchInput" class="form-control mr-sm-2 input-custom" type="text" placeholder="Search by keyword..." aria-label="Search" [ngModelOptions]="{standalone: true}"/>
       <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button>
       <!-- <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button> -->
     </form>
@@ -58,7 +58,7 @@
 
 
   <!-- </div> -->
-  <div class= "header_div"> 
+  <!-- <div class= "header_div"> 
 <h2>I'd prefer a...</h2>
   </div>
     <div class="container">
@@ -70,11 +70,11 @@
                 <input type="radio" name="dateRange" value="contemporary" (click)="setDateRange('contemporary')">Contemporary
           </div>
           <!-- <div class="w-100"></div> -->
-          <div class="col">
+          <!-- <div class="col">
                 <input type="radio" name="dateRange" value="suprise" (click)="setDateRange('suprise')">Suprise Me
           </div>
         </div>
-    </div>
+    </div> --> 
 
     <div class= "header_div">    
 <h2>I'm in the mood for...</h2>
@@ -108,7 +108,7 @@
 
 
     <div class= "header_div"> 
-<h2>I'm currently viewing in...</h2>
+<h2>I'm watching in...</h2>
 </div>
       <h1><select [(ngModel)]="selectedLocation" ><br><br>
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
@@ -116,7 +116,7 @@
 
    
 
-      <ul>
+      <!-- <ul>
         <li *ngIf='movie'>
           <p> {{ movie.filmid }} ({{movie.genre}})</p>
           <p><img src="{{ movie.poster }}" target="_blank" class="url"/></p>
@@ -125,7 +125,7 @@
           <p> movie length: {{ movie.runtime }} </p>
           <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}" target="_blank" class="url">imdb</a></p>
         </li>
-    </ul>
+    </ul> -->
 
 
 
@@ -151,18 +151,17 @@
 
 
     <!-- search results container -->
-    <div class="search_results_container">
+    <!-- <div class="search_results_container">
       <div  class="search_results_div"  *ngFor='let movie of list'>
-        <!-- <p>{{ movie.title }}</p> -->
         <div class="image-container">
         <img class='movie_img' src={{movie.image}} alt="">
         </div>  
         <h5 class="movie_heading">{{ movie.title }}</h5>
-        <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button">Get IMDB Details</button>
+        <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button">See Details</button>
     </div>
-    </div>
+    </div> -->
 
-    <ul>
+    <!-- <ul>
         <li *ngIf='movie'>
           <p> {{ movie.filmid }} ({{movie.genre}})</p>
           <div class="imdb-image-container">
@@ -173,23 +172,61 @@
           <p> movie length: {{ movie.runtime }} </p>
           <p> view on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
         </li>
-    </ul>
+    </ul> -->
 
 
 
-  <!-- <div class="imdb_results_container">
+  <!-- <div class="imdb_results_container" *ngIf='movie'>
     <div class="imdb_results_div">
     <ul>
       <li *ngIf='movie'>
-        <p> {{ movie.filmid }} ({{movie.genre}})</p>
         <div class="imdb-image-container">
         <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
         </div>
-        <p> plot: {{ movie.plot }} </p>
-        <p> released: {{ movie.released }} </p>
-        <p> movie length: {{ movie.runtime }} </p>
-        <p> view on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+        <p> Plot: {{ movie.plot }} </p>
+        <p> Genre: ({{movie.genre}})</p>
+        <p> Released: {{ movie.released }} </p>
+        <p> Movie Length: {{ movie.runtime }} </p>
+        <p> View on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
       </li>
   </ul>
   </div>
 </div> -->
+
+
+<div class="search_results_container">
+    <div class="search_results_div" *ngFor='let movie of list'>
+        <div class="image-container">
+            <img class='movie_img' src={{movie.image}} alt="">
+        </div>  
+        <h5 class="movie_heading">{{ movie.title }}</h5>
+      <!-- <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button" href="#popup1" >See Details</button> -->
+       <a (click)="getAllImdbDetails(movie.netflixid)" class="button" href="#popup1">Let me Pop up</a> 
+  </div>
+</div>
+  
+<div class="imdb_results_container" *ngIf='movie'>
+  <div class="imdb_results_div"> 
+  <div id="popup1" class="overlay">
+    <div class="popup">
+  <h2>{{ movie.title }}</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+          <ul>
+              <li *ngIf='movie'>
+                <div class="imdb-image-container">
+                <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
+                </div>
+                <p> Plot: {{ movie.plot }} </p>
+                <p> Genre: ({{movie.genre}})</p>
+                <p> Released: {{ movie.released }} </p>
+                <p> Movie Length: {{ movie.runtime }} </p>
+                <p> View on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+              </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
