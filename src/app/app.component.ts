@@ -47,8 +47,8 @@ export class AppComponent {
   typeMovie: boolean = false;
   typeTv: boolean = false;
   videoType: string;
-  startYear: string;
-  endYear: string;
+  startYear: string = '1900';
+  endYear: string = '2019';
   films: object[];
   imdbId: string = '80998296';
   baseUrl: string = 'https://www.imdb.com/title/';
@@ -80,6 +80,10 @@ export class AppComponent {
 
   selectedGenre: string;
   mediaType: string;
+
+  mediaButtons = ["Movie", "Series", "Any"];
+
+  genreButtons = ["Action", "Comedy", "Romance", "Drama", "Horror", "Children & Family"];
 
 
 
@@ -126,6 +130,10 @@ getAllImdbDetails = (netflixid) => {
 setMediaType = (type) => {
   this.mediaType = type;
   console.log(this.mediaType);
+  document.getElementById("Movie").style.backgroundColor="";
+  document.getElementById("Series").style.backgroundColor="";
+  document.getElementById("Any").style.backgroundColor="";
+  document.getElementById(type).style.backgroundColor="red";
 }
 
 setDateRange = (dateRange) => {
@@ -150,6 +158,13 @@ setGenre = (genre) => {
   if (genre === 'Drama') {this.selectedGenre = '5763'};
   if (genre ==='Horror' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Horror' && this.mediaType === 'Series') this.selectedGenre = '83059'};
   if (genre === 'Children' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Children' && this.mediaType === 'Series') this.selectedGenre = '11177'};
+  document.getElementById("Action").style.backgroundColor="";
+  document.getElementById("Comedy").style.backgroundColor="";
+  document.getElementById("Romance").style.backgroundColor="";
+  document.getElementById("Drama").style.backgroundColor="";
+  document.getElementById("Horror").style.backgroundColor="";
+  document.getElementById("Children & Family").style.backgroundColor="";
+  document.getElementById(genre).style.backgroundColor="red";
 }
 
 }

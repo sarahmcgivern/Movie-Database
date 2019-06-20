@@ -19,7 +19,7 @@
       </div>
     </div>
 
-<!-- **old block buttons** -->
+    **old block buttons** -->
     <!-- <div class="container">
 
         <div class="row">
@@ -36,12 +36,14 @@
         </div>
     </div> -->
 
+
+
 <div class="form-container">
   <div class= "header_div">  
   <h2>I'm looking for a...</h2>
   </div>   
    
-    <div class="container">
+    <!-- <div class="container">
             <div class="row">
               <div class="col">
                 <input type="radio" name="mediaType" value="Movies" (click)="setMediaType('Movie')">Movie
@@ -49,16 +51,24 @@
               <div class="col">
                     <input type="radio" name="mediaType" value="TV" (click)="setMediaType('Series')">TV Show
               </div>
-              <!-- <div class="w-100"></div> -->
+              
               <div class="col">
                     <input type="radio" name="mediaType" value="Either" (click)="setMediaType('Any')">Either
               </div>
             </div>
-        </div>
+        </div> -->
+        <div class="container">
+
+                <div class="row" *ngFor="let type of mediaButtons">
+                  <div class="col">
+                    <button type="button" id="{{type}}" (click)="setMediaType(type)">{{ type }}</button>
+                  </div>
+                </div>
+            </div>
 
 
   <!-- </div> -->
-  <div class= "header_div"> 
+  <!-- <div class= "header_div"> 
 <h2>I'd prefer a...</h2>
   </div>
     <div class="container">
@@ -69,18 +79,18 @@
           <div class="col">
                 <input type="radio" name="dateRange" value="contemporary" (click)="setDateRange('contemporary')">Contemporary
           </div>
-          <!-- <div class="w-100"></div> -->
+          
           <div class="col">
                 <input type="radio" name="dateRange" value="suprise" (click)="setDateRange('suprise')">Suprise Me
           </div>
         </div>
-    </div>
+    </div> -->
 
     <div class= "header_div">    
 <h2>I'm in the mood for...</h2>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
           <div class="col">
                 <input type="radio" name="mood" value="Action" (click)="setGenre('Action')">Action
@@ -88,7 +98,7 @@
           <div class="col">
                 <input type="radio" name="mood" value="Comedy" (click)="setGenre('Comedy')">Comedy
           </div>
-          <!-- <div class="w-100"></div> -->
+          
           <div class="col">
                 <input type="radio" name="mood" value="Romance" (click)="setGenre('Romance')">Romance
           </div>
@@ -104,7 +114,16 @@
 
           </div>
         </div>
-    </div>
+    </div> -->
+
+    <div class="container">
+
+            <div class="row" *ngFor="let type of genreButtons">
+              <div class="col">
+                <button type="button" id="{{type}}" (click)="setGenre(type)">{{ type }}</button>
+              </div>
+            </div>
+        </div>
 
 
     <div class= "header_div"> 
