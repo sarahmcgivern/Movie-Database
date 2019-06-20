@@ -19,13 +19,24 @@ body {
 }
 
 .navbar-brand {
-  font-size: 30px;
+  font-size: 40px;
+  margin-left: 40px;
+
+}
+
+.form-inline {
+  margin-right: 30px;
+}
+.input-custom {
+  width: 300px !important;
+  height: 45px;
 }
 
 .btn-outline-success {
   color: white;
   background-color: #95f4ff;
   border: #007bff;
+  height: 45px;
 }
 
 .btn-outline-success:hover {
@@ -41,7 +52,7 @@ body {
   width: 60%;
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: -10px;
+  /* margin-bottom: -10px; */
   border-radius: 15px;
   position: relative;
   padding: 10px 5px;
@@ -72,7 +83,7 @@ padding: 5px;
   border: 1px solid white;
   margin: 5px;
   /* background-color: rgb(145, 54, 161217); */
-  height: 40px;
+  height: 50px;
   width: 80px;
   background-image: linear-gradient(-215deg, 
   rgb(0, 191, 255), 
@@ -84,6 +95,7 @@ select {
   font-size: 25px;
   color: white;
   width: 50%;
+  height: 40px;
   padding: 5px;
   float: center;
   background-image: linear-gradient(-215deg, 
@@ -101,12 +113,15 @@ select {
   border: none;
   margin: 0 auto;
   width: 60%;
-  margin-top: 20px; 
+  height: 40px;
+  margin-top: 40px; 
+  margin-bottom: 10px;
   border-radius: 15px;
   position: relative;
   float: center;
   background-color: #95f4ff;;
   color: purple;
+  font-size: 20px;
 }
 
 .button_div {
@@ -126,11 +141,13 @@ select {
 
 
 .search_results_div {
-  /* background-color: rgb(237, 237, 237); */
-  background-color: rgb(72, 63, 164);
+  /* background-color: rgb(72, 63, 164); */
+  background-color:rgb(105, 50, 172);
+  border: 1px solid rgb(172, 244, 252);
   width: 180px;
   padding: 20px;
   margin: 5px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -173,8 +190,7 @@ select {
 
 .imdb_results_div {
   /* background-color: rgb(237, 237, 237); */
-  background-color: rgb(72, 63, 164);
-  width: 180px;
+  /* width: 180px; */
   padding: 20px;
   margin: 5px;
   display: flex;
@@ -189,9 +205,92 @@ select {
 
 .imdb_img {
   width: 100%;
-  max-width: 160px;
+  /* max-width: 160px; */
   margin: auto;
 }
+
+
+
+
+
+.box {
+  width: 60%;
+  height: 50%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+
+}
+
+.pop-up-button {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.pop-up-button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 70%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+  color: black;
+}
+
+
 
 /* Extra small devices (phones, 400px and down) */
 @media only screen and (max-width: 400px) {

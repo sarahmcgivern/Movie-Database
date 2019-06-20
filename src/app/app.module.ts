@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 import { Api } from './services/api.service';
 import { SearchComponent } from './search/search.component';
-import { ResultsComponent } from './results/results.component';
+
 
 
 const appRoutes: Routes = [
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     SearchComponent,
-    ResultsComponent,
+
   ],
   imports: [
     BrowserModule,
