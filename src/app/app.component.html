@@ -221,7 +221,7 @@
         <div class="image-container">
             <img class='movie_img' src={{movie.image}} alt="">
         </div>  
-        <h5 class="movie_heading">{{ movie.title }}</h5>
+        <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
       <!-- <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button" href="#popup1" >See Details</button> -->
        <a (click)="getAllImdbDetails(movie.netflixid)" class="button" href="#popup1">Let me Pop up</a> 
   </div>
