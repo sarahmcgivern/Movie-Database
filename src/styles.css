@@ -120,7 +120,7 @@ select {
 .btn-primary {
   border: none;
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
   height: 40px;
   margin-top: 40px; 
   margin-bottom: 10px;
@@ -213,33 +213,6 @@ select {
   width: 100%;
   /* max-width: 160px; */
   margin: auto;
-}
-
-.box {
-  width: 60%;
-  height: 50%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-.pop-up-button {
-  font-size: 1em;
-  padding: 10px;
-  color: #fff;
-  border: 2px solid #06D85F;
-  border-radius: 20px/50px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-
-.pop-up-button:hover {
-  background: #06D85F;
 }
 
 .overlay {
