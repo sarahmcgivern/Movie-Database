@@ -76,7 +76,9 @@ export class AppComponent {
     {genreId: '3979', genreName: 'Critically-acclaimed Films'},
     {genreId: '1492', genreName: 'Sci-fi & Fantasy'},
     {genreId: '83', genreName: 'TV Shows'},
-    {genreId: '6548', genreName: 'Comedies'}
+    {genreId: '6548', genreName: 'Comedies'},
+    {genreId: '47147', genreName: 'Classics'},
+    {genreId: '1252', genreName: 'Campy Movies'}
   ];
 
   selectedGenre: string;
@@ -84,27 +86,12 @@ export class AppComponent {
 
   mediaButtons = ["Movie", "Series", "Any"];
 
-  genreButtons = ["Action", "Comedy", "Romance", "Drama", "Horror", "Children & Family"];
+  genreButtons = ["Feel Badass", "Laugh", "Believe In Love", "Think", "Be Scared", "Watch With Kids", "Feel Nostalgic", "Learn", "Only Kind Of Pay Attention"];
 
 
 
   constructor(private api: Api, private router: Router) {}
 
-
-    // searchAllMovies = () => {
-    //   this.api.searchMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
-    // }
-    
-  //   searchAllMovies = () => {
-  //     this.api.searchMovie(this.searchInput).subscribe((data:any) => {
-  //       this.list = data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()));
-  //   },
-  //   error => {
-  //     this.errorMessage = error.message;
-  //     console.log("error")
-  //   }
-  //   );
-  // };
 
   searchAllMovies = () => {
     this.api.searchMovie(this.searchInput).subscribe((data:any) => {
@@ -157,35 +144,60 @@ setMediaType = (type) => {
   document.getElementById(type).style.backgroundColor="rgb(0, 123, 255)";
 }
 
-setDateRange = (dateRange) => {
-  if (dateRange === 'classic'){
-    this.startYear = '1900';
-    this.endYear = '1980';
-  };
-  if (dateRange === 'contemporary'){
-    this.startYear = '1981';
-    this.endYear = '2019';
-  };
-  if (dateRange === 'suprise'){
-    this.startYear = '1900';
-    this.endYear = '2019';
-  }
-}
+// setDateRange = (dateRange) => {
+//   if (dateRange === 'classic'){
+//     this.startYear = '1900';
+//     this.endYear = '1980';
+//   };
+//   if (dateRange === 'contemporary'){
+//     this.startYear = '1981';
+//     this.endYear = '2019';
+//   };
+//   if (dateRange === 'suprise'){
+//     this.startYear = '1900';
+//     this.endYear = '2019';
+//   }
+// }
+
 
 setGenre = (genre) => {
-  if (genre === 'Action') {this.selectedGenre = '801362'};
-  if (genre === 'Comedy') {this.selectedGenre = '6548'};
-  if (genre === 'Romance') {this.selectedGenre = '8883'};
-  if (genre === 'Drama') {this.selectedGenre = '5763'};
-  if (genre ==='Horror' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Horror' && this.mediaType === 'Series') this.selectedGenre = '83059'};
-  if (genre === 'Children' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Children' && this.mediaType === 'Series') this.selectedGenre = '11177'};
-  document.getElementById("Action").style.backgroundColor="";
-  document.getElementById("Comedy").style.backgroundColor="";
-  document.getElementById("Romance").style.backgroundColor="";
-  document.getElementById("Drama").style.backgroundColor="";
-  document.getElementById("Horror").style.backgroundColor="";
-  document.getElementById("Children & Family").style.backgroundColor="";
+  if (genre === 'Feel Badass') {this.selectedGenre = '801362'};
+  if (genre === 'Laugh') {this.selectedGenre = '6548'};
+  if (genre === 'Believe In Love') {this.selectedGenre = '8883'};
+  if (genre === 'Think') {this.selectedGenre = '5763'};
+  if (genre ==='Be Scared' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Be Scared' && this.mediaType === 'Series') this.selectedGenre = '83059'};
+  if (genre === 'Watch With Kids' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Watch With Kids' && this.mediaType === 'Series') this.selectedGenre = '11177'};
+  if (genre === 'Feel Nostalgic') {this.selectedGenre = '47147'};
+  if (genre === 'Learn') {this.selectedGenre = '6839'};
+  if (genre === 'Only Kind Of Pay Attention') {this.selectedGenre = '5763'};
+  document.getElementById("Feel Badass").style.backgroundColor="";
+  document.getElementById("Laugh").style.backgroundColor="";
+  document.getElementById("Believe In Love").style.backgroundColor="";
+  document.getElementById("Think").style.backgroundColor="";
+  document.getElementById("Be Scared").style.backgroundColor="";
+  document.getElementById("Feel Nostalgic").style.backgroundColor="";
+  document.getElementById("Learn").style.backgroundColor="";
+  document.getElementById("Watch With Kids").style.backgroundColor="";
+  document.getElementById("Only Kind Of Pay Attention").style.backgroundColor="";
   document.getElementById(genre).style.backgroundColor="rgb(0, 123, 255)";
 }
+
+
+
+// setGenre = (genre) => {
+//   if (genre === 'Action') {this.selectedGenre = '801362'};
+//   if (genre === 'Comedy') {this.selectedGenre = '6548'};
+//   if (genre === 'Romance') {this.selectedGenre = '8883'};
+//   if (genre === 'Drama') {this.selectedGenre = '5763'};
+//   if (genre ==='Horror' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Horror' && this.mediaType === 'Series') this.selectedGenre = '83059'};
+//   if (genre === 'Children' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Children' && this.mediaType === 'Series') this.selectedGenre = '11177'};
+//   document.getElementById("Action").style.backgroundColor="";
+//   document.getElementById("Comedy").style.backgroundColor="";
+//   document.getElementById("Romance").style.backgroundColor="";
+//   document.getElementById("Drama").style.backgroundColor="";
+//   document.getElementById("Horror").style.backgroundColor="";
+//   document.getElementById("Children & Family").style.backgroundColor="";
+//   document.getElementById(genre).style.backgroundColor="rgb(0, 123, 255)";
+// }
 
 }

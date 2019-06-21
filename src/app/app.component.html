@@ -9,7 +9,7 @@
 
  
 <!-- **form** -->
-<div class="form-container">
+<div class="form-container" id="formContId">
 
   <div class= "header_div">  
     <h2>I'm looking for a...</h2>
@@ -45,11 +45,9 @@
     </div> -->
 
 
-
-<div class= "header_div">    
-  <h2>I'm in the mood for...</h2>
-</div>
-
+    <div class= "header_div" id="formContId">    
+<h2>I want to...</h2>
+    </div>
 
     <div class="container">
 
@@ -70,7 +68,6 @@
     </select></h1><br>
 
 
-
 </div>
 
   <div class="button_div">
@@ -78,15 +75,21 @@
   </div>
     
 
+<!-- **results error** -->
+<h1>{{errorMessage}}</h1>
+
 <!-- **search results container** -->
 <div class="search_results_container">
+ 
     <div class="search_results_div" *ngFor='let movie of list'>
-      
+     
         <div class="image-container">
             <img class='movie_img' src={{movie.image}} alt="">
         </div>  
+
       
         <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
+
        <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a> 
       
     </div>

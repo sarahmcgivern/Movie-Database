@@ -13,12 +13,14 @@ body {
 }
 
 .navbar-custom {
-  background-color: white !important;
+  background-color: transparent !important;
+
 }
 
 .navbar-brand {
   font-size: 40px;
   margin-left: 40px;
+  color: white;
 }
 
 .form-inline {
@@ -157,6 +159,23 @@ button:focus{
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   justify-content: center;
+}
+
+.error_container {
+  background-color:rgb(105, 50, 172);
+  border: 1px solid rgb(172, 244, 252);
+  width: 180px;
+  padding: 20px;
+  margin: 5px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  font-size: 10px;
+  flex-wrap: wrap;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-family: Poppins, sans-serif;
+  font-weight: lighter;
 }
 
 .search_results_div {
