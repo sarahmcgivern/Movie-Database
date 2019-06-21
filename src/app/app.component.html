@@ -3,7 +3,7 @@
     <a class="navbar-brand" id="flixmeRev">flixme</a>
     <form class="form-inline" id="inputCont">
       <input [(ngModel)]="searchInput" class="form-control mr-sm-2 input-custom" type="text" placeholder="Search by keyword..." aria-label="Search" [ngModelOptions]="{standalone: true}" id="inputRev" />
-      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button>
+      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button>
     </form>
   </nav>
 
@@ -71,7 +71,7 @@
 </div>
 
   <div class="button_div">
-      <button (click)="getAllMovies()" type="button" class="btn btn-primary">See Suggestions</button>
+      <button (click)="getAllMovies()" type="button" class="btn btn-primary" id ='suggestions'>See Suggestions</button>
   </div>
     
 
@@ -87,7 +87,9 @@
             <img class='movie_img' src={{movie.image}} alt="">
         </div>  
 
-        <h5 class="movie_heading">{{ movie.title }}</h5>
+      
+        <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
+
        <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a> 
       
     </div>
@@ -105,13 +107,14 @@
           <ul>
               <li *ngIf='movie'>
                 <div class="imdb-image-container">
-                <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
                 </div>
-                <p> Plot: {{ movie.plot }} </p>
-                <p> Genre: ({{movie.genre}})</p>
-                <p> Released: {{ movie.released }} </p>
-                <p> Movie Length: {{ movie.runtime }} </p>
-                <p> View on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+                <!-- <p>{{ movie.title | replaceAscii }}</p> -->
+                <p> plot {{ movie.plot }} </p>
+                <p> genre: ({{movie.genre}})</p>
+                <p> released: {{ movie.released }} </p>
+                <p> runtime: {{ movie.runtime }} </p>
+                <p> view trailer & more details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >imdb</a></p>
+                <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
               </li>
           </ul>
       </div>
