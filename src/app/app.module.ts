@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 import { Api } from './services/api.service';
 import { SearchComponent } from './search/search.component';
-
+import { ReplaceAscii } from './replace.pipe'
 
 
 const appRoutes: Routes = [
@@ -21,6 +21,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     SearchComponent,
+    ReplaceAscii
 
   ],
   imports: [
