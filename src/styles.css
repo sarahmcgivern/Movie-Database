@@ -1,5 +1,5 @@
 body {
-    color: white;
+    color: darkorchid;
     height: 100vh;
     /* display: flex; */
     margin: 0 auto;
@@ -10,67 +10,60 @@ body {
     rgb(145, 54, 161217));
     background-repeat: no-repeat;
     background-attachment: fixed;
-   
-  }
+}
 
 .navbar-custom {
-  background-color: transparent !important;
+  background-color: white !important;
   /* background-image: none; */
 }
 
 .navbar-brand {
   font-size: 40px;
   margin-left: 40px;
-
 }
 
 .form-inline {
   margin-right: 30px;
 }
+
 .input-custom {
   width: 300px !important;
   height: 45px;
 }
 
 .btn-outline-success {
-  color: white;
+  border: none;
+  color: darkorchid;
   background-color: #95f4ff;
-  border: darkorchid;
   height: 45px;
 }
 
 .btn-outline-success:hover {
-  background-color: darkorchid;
-
+  background-color: rgb(0, 123, 255);
 }
 
 .form-container {
- 
   /* background-color:  rgb(50, 255, 248); */
-
   background-color: #95f4ff;
   width: 60%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 60px;
   /* margin-bottom: -10px; */
   border-radius: 15px;
   position: relative;
   padding: 10px 5px;
-  border: 1px solid white;
-
+  /* border: 1px solid white; */
 }
 
 h2 {
   text-align: center;
-  color: purple;
- 
+  color: darkorchid;
   font-family: Poppins, sans-serif;
 }
 
 h1 {
   text-align: center;
 }
-
 
 .header_div {
 width: 100%;
@@ -90,33 +83,6 @@ padding: 5px;
   rgb(45, 148, 243) 55%, 
   rgb(145, 54, 161217));
   font-size: 20px;
-} */
-
-/* .suggestionButton:hover {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  padding: .375rem .75rem;
-  line-height: 1.5;
-  transition: color .15s
-  ease-in-out,border-color .15s
-  ease-in-out, box-shadow .15s
-  ease-in-out;
-  border: none;
-  margin: 0 auto;
-  width: 60%;
-  height: 40px;
-  margin-top: 40px; 
-  margin-bottom: 10px;
-  border-radius: 15px;
-  position: relative;
-  float: center;
-  background-color: #95f4ff;;
-  color: purple;
-  font-size: 20px;
-  background-color: darkorchid;
 } */
 
 .buttonInput {
@@ -162,7 +128,7 @@ select {
   position: relative;
   float: center;
   background-color: #95f4ff;;
-  color: purple;
+  color: darkorchid;
   font-size: 20px;
 }
 
@@ -175,12 +141,10 @@ select {
   flex-direction: row;  
   flex-wrap: wrap;
   width: 100%;
-  /* font-family: 'Source Sans Pro', sans-serif; */
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   justify-content: center;
 }
-
 
 .search_results_div {
   /* background-color: rgb(72, 63, 164); */
@@ -251,10 +215,6 @@ select {
   margin: auto;
 }
 
-
-
-
-
 .box {
   width: 60%;
   height: 50%;
@@ -265,7 +225,6 @@ select {
   border-radius: 20px/50px;
   background-clip: padding-box;
   text-align: center;
-
 }
 
 .pop-up-button {
@@ -278,6 +237,7 @@ select {
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
+
 .pop-up-button:hover {
   background: #06D85F;
 }
@@ -293,6 +253,7 @@ select {
   visibility: hidden;
   opacity: 0;
 }
+
 .overlay:target {
   visibility: visible;
   opacity: 1;
@@ -313,6 +274,7 @@ select {
   color: #333;
   font-family: Tahoma, Arial, sans-serif;
 }
+
 .popup .close {
   position: absolute;
   top: 20px;
@@ -323,9 +285,11 @@ select {
   text-decoration: none;
   color: #333;
 }
+
 .popup .close:hover {
   color: #06D85F;
 }
+
 .popup .content {
   max-height: 30%;
   overflow: auto;
@@ -334,7 +298,7 @@ select {
 
 
 
-/* Extra small devices (phones, 400px and down) ************************************************************************/
+/* MOBILE */
 @media only screen and (max-width: 600px) {
   body {
     display: flex;
@@ -349,17 +313,14 @@ select {
     width: 95%;  
   }
   
-  
-  
   #formContId {
     display: flex;
     flex-direction: column;  
     width: 95%;
   }
   
-
 button {
-  background-color: transparent;
+  background-color: white;
   text-align: center;
   width: 100%;
   border: 0px;
@@ -379,42 +340,34 @@ button {
   align-items: center;
   margin: auto;
 }
-
-
-
 }  
 
 
 
 
-/* Medium devices (landscape tablets, 768px and up) ********************************************************************/
+/* TABLET */
 @media only screen and (min-width: 768px) {
   #navRev {
-    
     background-size: 50%;
   } 
 
   #flixmeRev {
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    padding-top: 15px;
     padding-left: 15px;
     padding-right:15px;
     border-radius: 10px;
-    color: dodgerblue;
+    color: darkorchid;
     font-size: 50px;
   }
 }
 
 
 
-/* Extra large devices (large laptops and desktops, 1200px and up) ****************************************************/
+/* 1200px and up */
 @media only screen and (min-width: 1200px) {
   /* #navRev {
     background-image:url("app/images/movie_ribbon.PNG");
     background-size: 50%;
-    
-    
   } */
-
 }
-
-
