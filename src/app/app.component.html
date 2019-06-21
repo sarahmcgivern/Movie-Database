@@ -61,7 +61,7 @@
 
                 <div class="row" *ngFor="let type of mediaButtons">
                   <div class="col">
-                    <button type="button" id="{{type}}" (click)="setMediaType(type)">{{ type }}</button>
+                    <button class="buttonInput"type="button" id="{{type}}" (click)="setMediaType(type)">{{ type }}</button>
                   </div>
                 </div>
             </div>
@@ -123,7 +123,7 @@
 
             <div class="row" *ngFor="let type of genreButtons">
               <div class="col">
-                <button type="button" id="{{type}}" (click)="setGenre(type)">{{ type }}</button>
+                <button class="buttonInput" type="button" id="{{type}}" (click)="setGenre(type)">{{ type }}</button>
               </div>
             </div>
         </div>
@@ -147,7 +147,7 @@
           <p> movie length: {{ movie.runtime }} </p>
           <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}" target="_blank" class="url">imdb</a></p>
         </li>
-    </ul> --> -->
+    </ul> -->
 
 
 
