@@ -52,6 +52,7 @@ export class AppComponent {
   films: object[];
   imdbId: string = '80998296';
   baseUrl: string = 'https://www.imdb.com/title/';
+  errorMessage: string;
   locations = [
     {id: '23', name:'Australia'},
     {id: '33', name: 'Canada'},
@@ -94,15 +95,35 @@ export class AppComponent {
     //   this.api.searchMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
     // }
     
-    searchAllMovies = () => {
-      this.api.searchMovie(this.searchInput).subscribe((data:any) => {
-        this.list = data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()));
-    });
+  //   searchAllMovies = () => {
+  //     this.api.searchMovie(this.searchInput).subscribe((data:any) => {
+  //       this.list = data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()));
+  //   },
+  //   error => {
+  //     this.errorMessage = error.message;
+  //     console.log("error")
+  //   }
+  //   );
+  // };
+
+  searchAllMovies = () => {
+    this.api.searchMovie(this.searchInput).subscribe((data:any) => {
+     this.list = data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()));
+      
+      if (this.list.length > 0) {
+        this.errorMessage = null
+      }
+      else {
+        this.errorMessage = 'No Results Found';
+        console.log(this.errorMessage);
+      };
+    },
+  error => {
+    this.errorMessage = error.message;
+  });
+ 
   };
 
-  show = () => {
-    this.modalMovie = this.list;
-  }
 
   getAllMovies = () => {
     
