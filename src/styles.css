@@ -13,13 +13,13 @@ body {
 }
 
 .navbar-custom {
-  background-color: white !important;
-  /* background-image: none; */
+  background-color: transparent !important;
 }
 
 .navbar-brand {
   font-size: 40px;
   margin-left: 40px;
+  color: white;
 }
 
 .form-inline {
@@ -146,6 +146,23 @@ select {
   justify-content: center;
 }
 
+.error_container {
+  background-color:rgb(105, 50, 172);
+  border: 1px solid rgb(172, 244, 252);
+  width: 180px;
+  padding: 20px;
+  margin: 5px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  font-size: 10px;
+  flex-wrap: wrap;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-family: Poppins, sans-serif;
+  font-weight: lighter;
+}
+
 .search_results_div {
   /* background-color: rgb(72, 63, 164); */
   background-color:rgb(105, 50, 172);
@@ -214,37 +231,6 @@ select {
   /* max-width: 160px; */
   margin: auto;
 }
-
-<<<<<<< HEAD
-
-=======
-.box {
-  width: 60%;
-  height: 50%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-.pop-up-button {
-  font-size: 1em;
-  padding: 10px;
-  color: #fff;
-  border: 2px solid #06D85F;
-  border-radius: 20px/50px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-
-.pop-up-button:hover {
-  background: #06D85F;
-}
->>>>>>> a69e8b7ee3d8ad7033530cb83e03fbe7c0dcede4
 
 .overlay {
   position: fixed;

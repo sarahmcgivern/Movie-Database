@@ -6,44 +6,11 @@
       <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button>
     </form>
   </nav>
-<<<<<<< HEAD
+
  
 <!-- **form** -->
-<div class="form-container">
-=======
-
-  <!-- <app-search></app-search> -->
-
-<!-- 
-**modal**
-    <div *ngIf="this.modalMovie" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">  
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <h1>{{ this.modalMovie.title }}</h1>
-      </div>
-    </div>
-
-    **old block buttons** -->
-    <!-- <div class="container">
-
-        <div class="row">
-          <div class="col">
-            <button type="button" class="btn btn-primary">Movie</button>
-          </div>
-          <div class="col">
-            <button type="button" class="btn btn-primary">TV</button>
-          </div>
-          
-          <div class="col">
-            <button type="button" class="btn btn-primary">Either</button>
-          </div>
-        </div>
-    </div> -->
-
-
-
 <div class="form-container" id="formContId">
->>>>>>> a69e8b7ee3d8ad7033530cb83e03fbe7c0dcede4
+
   <div class= "header_div">  
     <h2>I'm looking for a...</h2>
   </div>   
@@ -78,41 +45,9 @@
     </div> -->
 
 
-<<<<<<< HEAD
-<div class= "header_div">    
-  <h2>I'm in the mood for...</h2>
-</div>
-=======
     <div class= "header_div" id="formContId">    
-<h2>I'm in the mood for...</h2>
+<h2>I want to...</h2>
     </div>
-
-    <!-- <div class="container">
-        <div class="row">
-          <div class="col">
-                <input type="radio" name="mood" value="Action" (click)="setGenre('Action')">Action
-          </div>
-          <div class="col">
-                <input type="radio" name="mood" value="Comedy" (click)="setGenre('Comedy')">Comedy
-          </div>
-          
-          <div class="col">
-                <input type="radio" name="mood" value="Romance" (click)="setGenre('Romance')">Romance
-          </div>
-          <div class="w-100"></div>
-          <div class="col">
-                <input type="radio" name="mood" value="Drama" (click)="setGenre('Drama')">Drama
-          </div>
-          <div class="col">
-                <input type="radio" name="mood" value="Horror" (click)="setGenre('Horror')">Horror
-          </div>
-          <div class="col">
-                <input type="radio" name="mood" value="Children" (click)="setGenre('Children')">Children & Family
-
-          </div>
-        </div>
-    </div> -->
->>>>>>> a69e8b7ee3d8ad7033530cb83e03fbe7c0dcede4
 
     <div class="container">
 
@@ -132,22 +67,6 @@
         <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
     </select></h1><br>
 
-<<<<<<< HEAD
-=======
-   
-
-      <!-- <ul>
-        <li *ngIf='movie'>
-           <p> {{ movie.filmid }} ({{movie.genre}})</p> -->
-          <!-- <p><img src="{{ movie.poster }}" target="_blank" class="url"/></p>
-          <p> plot: {{ movie.plot }} </p>
-          <p> released: {{ movie.released }} </p>
-          <p> movie length: {{ movie.runtime }} </p>
-          <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}" target="_blank" class="url">imdb</a></p>
-        </li>
-    </ul> -->
-
->>>>>>> a69e8b7ee3d8ad7033530cb83e03fbe7c0dcede4
 
 </div>
 
@@ -156,24 +75,23 @@
   </div>
     
 
+<!-- **results error** -->
+<h1>{{errorMessage}}</h1>
+
 <!-- **search results container** -->
 <div class="search_results_container">
+ 
     <div class="search_results_div" *ngFor='let movie of list'>
-      
+     
         <div class="image-container">
             <img class='movie_img' src={{movie.image}} alt="">
         </div>  
-<<<<<<< HEAD
+
         <h5 class="movie_heading">{{ movie.title }}</h5>
        <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a> 
       
     </div>
-=======
-        <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
-      <!-- <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button" href="#popup1" >See Details</button> -->
-       <a (click)="getAllImdbDetails(movie.netflixid)" class="button" href="#popup1">Let me Pop up</a> 
-  </div>
->>>>>>> a69e8b7ee3d8ad7033530cb83e03fbe7c0dcede4
+
 </div>
 
 <!-- **imdb modal** -->
