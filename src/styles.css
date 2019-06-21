@@ -14,7 +14,6 @@ body {
 
 .navbar-custom {
   background-color: white !important;
-  /* background-image: none; */
 }
 
 .navbar-brand {
@@ -67,35 +66,16 @@ h1 {
 
 .header_div {
 width: 100%;
-/* border: 2px solid white; */
 margin: 5px;
 padding: 5px;
 }
 
-/* .col {
-  border: 1px solid white;
-  margin: 5px;
-  background-color: rgb(145, 54, 161217);
-  height: 50px;
-  width: 80px;
-  background-image: linear-gradient(-215deg, 
-  rgb(0, 191, 255), 
-  rgb(45, 148, 243) 55%, 
-  rgb(145, 54, 161217));
-  font-size: 20px;
-} */
-
 .buttonInput {
-  /* border: 1px solid white; */
   border-radius: 15px;
   border: none;
   margin: 5px;
   height: 50px;
   width: 100%;
-  /* background-image: linear-gradient(-215deg, 
-  rgb(0, 191, 255), 
-  rgb(45, 148, 243) 55%, 
-  rgb(145, 54, 161217)); */
   font-size: 20px;
 }
 
@@ -117,6 +97,10 @@ select {
   margin: 20px 60px;
 }
 
+button:focus{
+  outline:0 none;
+}
+
 .btn-primary {
   border: none;
   margin: 0 auto;
@@ -132,8 +116,13 @@ select {
   font-size: 20px;
 }
 
+#suggestions{
+  width: 60%;
+}
+
 .button_div {
   text-align: center;
+  align-items: center;
 }
 
 .search_results_container {
@@ -173,7 +162,6 @@ select {
 .movie_heading {
   text-align: center;
   font-size: 15px;
-  /* font-family: 'Source Sans Pro', sans-serif; */
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   margin: auto;
@@ -188,7 +176,6 @@ select {
   flex-direction: row;  
   flex-wrap: wrap;
   width: 100%;
-  /* font-family: 'Source Sans Pro', sans-serif; */
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   justify-content: center;
@@ -271,6 +258,9 @@ select {
 
 
 
+
+
+
 /* MOBILE */
 @media only screen and (max-width: 600px) {
   body {
@@ -283,7 +273,7 @@ select {
   #navRev {
     display: flex;
     flex-direction: column;
-    width: 95%;  
+    /* width: 95%;   */
   }
   
   #formContId {
@@ -300,6 +290,27 @@ button {
   border-radius: 10px;
 }
 
+.buttonInput {
+  font-size: 70%;
+}
+
+h1 {
+  font-size: 95%;
+}
+
+h2 {
+  font-size: 95%;
+}
+
+select {
+  font-size: 10px;
+  width: auto;
+}
+
+#suggestions {
+  font-size: 10px;
+}
+
 #inputRev {
   display: flex;
   flex-direction: column;
@@ -314,7 +325,6 @@ button {
   margin: auto;
 }
 }  
-
 
 
 
