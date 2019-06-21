@@ -86,7 +86,7 @@
             <img class='movie_img' src={{movie.image}} alt="">
         </div>  
       
-        <h5 class="movie_heading">{{ movie.title }}</h5>
+        <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
        <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a> 
       
     </div>
