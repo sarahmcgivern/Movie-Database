@@ -292,21 +292,86 @@ select {
 
 
 
-/* Extra small devices (phones, 400px and down) */
-@media only screen and (max-width: 400px) {
+/* Extra small devices (phones, 400px and down) ************************************************************************/
+@media only screen and (max-width: 600px) {
   body {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
   }
+  
+  #navRev {
+    display: flex;
+    flex-direction: column;
+    width: 95%;  
+  }
+  
+  
+  
+  #formContId {
+    display: flex;
+    flex-direction: column;  
+    width: 95%;
+  }
+  
+
+button {
+  background-color: transparent;
+  text-align: center;
+  width: 100%;
+  border: 0px;
+  border-radius: 10px;
+}
+
+#inputRev {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;  
+}
+
+#inputCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+
+
 }  
 
-/* Medium devices (landscape tablets, 768px and up) */
+
+
+
+/* Medium devices (landscape tablets, 768px and up) ********************************************************************/
 @media only screen and (min-width: 768px) {
+  #navRev {
+    
+    background-size: 50%;
+  } 
 
-} 
+  #flixmeRev {
+    background-color: lightblue;
+    padding-left: 15px;
+    padding-right:15px;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-size: 50px;
+  }
+}
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) ****************************************************/
 @media only screen and (min-width: 1200px) {
+  /* #navRev {
+    background-image:url("app/images/movie_ribbon.PNG");
+    background-size: 50%;
+    
+    
+  } */
 
 }
 
