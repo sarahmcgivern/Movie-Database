@@ -154,7 +154,7 @@ setMediaType = (type) => {
   document.getElementById("Movie").style.backgroundColor="";
   document.getElementById("Series").style.backgroundColor="";
   document.getElementById("Any").style.backgroundColor="";
-  document.getElementById(type).style.backgroundColor="red";
+  document.getElementById(type).style.backgroundColor="rgb(0, 123, 255)";
 }
 
 setDateRange = (dateRange) => {
@@ -185,7 +185,7 @@ setGenre = (genre) => {
   document.getElementById("Drama").style.backgroundColor="";
   document.getElementById("Horror").style.backgroundColor="";
   document.getElementById("Children & Family").style.backgroundColor="";
-  document.getElementById(genre).style.backgroundColor="red";
+  document.getElementById(genre).style.backgroundColor="rgb(0, 123, 255)";
 }
 
 }
