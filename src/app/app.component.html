@@ -76,7 +76,12 @@
     
 
 <!-- **results error** -->
-<h1>{{errorMessage}}</h1>
+<div class="errorMessage">
+{{errorMessage}}
+</div>
+
+
+
 
 <!-- **search results container** -->
 <div class="search_results_container">
@@ -109,7 +114,7 @@
                 <div class="imdb-image-container">
                 </div>
                 <!-- <p>{{ movie.title | replaceAscii }}</p> -->
-                <p class="plot"> Plot: {{ movie.plot }} </p>
+                <p class="plot"> Plot: {{ movie.plot | replaceAscii }} </p>
                 <p class="genre"> Genre: ({{movie.genre}})</p>
                 <p class="released"> Released: {{ movie.released }} </p>
                 <p class="runtime"> Runtime: {{ movie.runtime }} </p>
