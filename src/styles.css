@@ -1,3 +1,9 @@
+html {
+  scroll-behavior: smooth;
+  /* overflow-y: scroll; */
+}
+
+
 body {
     color: darkorchid;
     height: 100vh;
@@ -70,12 +76,19 @@ body {
   background-color: #95f4ff;
   width: 60%;
   margin: 0 auto;
-  /* margin-top: 60px; */
+
+  margin-top: 20px;
   /* margin-bottom: -10px; */
   border-radius: 15px;
   position: relative;
   padding: 10px 5px;
   /* border: 1px solid white; */
+}
+
+.container {
+    width: 400px;
+    height: 200px;
+    overflow-y: auto;
 }
 
 h2 {
@@ -163,6 +176,7 @@ button:focus{
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   justify-content: center;
+  overflow-y: auto;
 }
 
 .error_container {
@@ -187,6 +201,7 @@ button:focus{
   rgb(0, 191, 255), 
   rgb(45, 148, 243) 55%,
   rgb(145, 54, 161217));
+  /* background-color:rgb(105, 50, 172); */
   border: 1px solid rgb(172, 244, 252);
   width: 180px;
   padding: 20px;
