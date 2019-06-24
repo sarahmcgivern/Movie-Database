@@ -77,7 +77,11 @@
     
 
 <!-- **results error** -->
-<h1 id="search">{{errorMessage}}</h1>
+<div class="errorMessage" id="search">
+{{errorMessage}}
+</div>
+
+
 
 <!-- **search results container** -->
 <div class="search_results_container" id='search' >
@@ -110,13 +114,11 @@
                 <div class="imdb-image-container">
                 </div>
                 <!-- <p>{{ movie.title | replaceAscii }}</p> -->
-
                 <p class="plot"> Plot: {{ movie.plot | replaceAscii  }} </p>
                 <p class="genre"> Genre: ({{movie.genre | replaceAscii }})</p>
                 <p class="released"> Released: {{ movie.released }} </p>
                 <p class="runtime"> Runtime: {{ movie.runtime }} </p>
                 <p class="linked"> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >IMDB.com</a></p>
-
                 <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
               </li>
           </ul>
