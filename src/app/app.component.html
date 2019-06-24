@@ -109,11 +109,11 @@
                 <div class="imdb-image-container">
                 </div>
                 <!-- <p>{{ movie.title | replaceAscii }}</p> -->
-                <p> plot {{ movie.plot }} </p>
-                <p> genre: ({{movie.genre}})</p>
-                <p> released: {{ movie.released }} </p>
-                <p> runtime: {{ movie.runtime }} </p>
-                <p> view trailer & more details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >imdb</a></p>
+                <p class="plot"> Plot: {{ movie.plot }} </p>
+                <p class="genre"> Genre: ({{movie.genre}})</p>
+                <p class="released"> Released: {{ movie.released }} </p>
+                <p class="runtime"> Runtime: {{ movie.runtime }} </p>
+                <p class="linked"> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >IMDB.com</a></p>
                 <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
               </li>
           </ul>
