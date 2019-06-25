@@ -7,20 +7,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { Api } from './services/api.service';
-import { SearchComponent } from './search/search.component';
 import { ReplaceAscii } from './replace.pipe'
 
 
 const appRoutes: Routes = [
   {path: '', component: AppComponent},
-  {path: '', component: SearchComponent }
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
     ReplaceAscii
 
   ],
