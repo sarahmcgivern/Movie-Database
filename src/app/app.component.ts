@@ -43,7 +43,7 @@ export class AppComponent {
   list: object[];
   modalMovie;
   modalIndex: number;
-  searchInput: string;
+  searchInput: string = null;
   typeMovie: boolean = false;
   typeTv: boolean = false;
   videoType: string;
@@ -116,6 +116,11 @@ export class AppComponent {
       if (this.list.length > 0) {
         this.errorMessage = null
       }
+      // else {
+      //   this.errorMessage = 'No Results Found';
+      //   console.log(this.errorMessage);
+     
+      // };
       else {
         this.errorMessage = 'No Results Found';
         console.log(this.errorMessage);
@@ -124,7 +129,7 @@ export class AppComponent {
   error => {
     this.errorMessage = error.message;
   });
- 
+  
   };
 
 
@@ -147,10 +152,10 @@ export class AppComponent {
     // console.log(this.selectedGenre);
 
     this.api.getMovie(this.mediaType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe((data:any) => {
-        this.list = data.ITEMS;
+      this.list = data.ITEMS;
         console.log(data.ITEMS);
+        this.errorMessage = null;  
     });
-    
   }
  
 

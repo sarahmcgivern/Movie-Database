@@ -16,60 +16,36 @@
     <h2>I'm looking for a...</h2>
   </div>   
    
- 
         <div class="container">
-
-                <!-- <div class="row" *ngFor="let type of mediaButtons"> -->
-                  <div class="col" *ngFor="let type of mediaButtons">
-                    <button class="buttonInput"type="button" id="{{type}}" (click)="setMediaType(type)">{{ type }}</button>
-                  </div>
-                <!-- </div> -->
-            </div>
-
-
-  <!-- </div> -->
-  <!-- <div class= "header_div"> 
-<h2>I'd prefer a...</h2>
-  </div>
-    <div class="container">
-        <div class="row">
-          <div class="col">
-                <input type="radio" name="dateRange" value="classic" (click)="setDateRange('classic')">Classic
-          </div>
-          <div class="col">
-                <input type="radio" name="dateRange" value="contemporary" (click)="setDateRange('contemporary')">Contemporary
-          </div>
-          <div class="col">
-                <input type="radio" name="dateRange" value="suprise" (click)="setDateRange('suprise')">Suprise Me
-          </div>
+            <div class="options" *ngFor="let type of mediaButtons">
+                <button class="buttonInput"type="button" id="{{type}}" (click)="setMediaType(type)">{{ type }}</button>
+            </div>  
         </div>
-    </div> -->
 
 
-    <div class= "header_div" id="formContId">    
-<h2>I want to...</h2>
-    </div>
 
-    <div class="container">
+  <div class= "header_div">    
+    <h2>I want to...</h2>
+  </div>
 
-            <div class="row" *ngFor="let type of genreButtons">
-              <div class="col">
+        <div class="container">
+              <div class="options" *ngFor="let type of genreButtons">
                 <button class="buttonInput" type="button" id="{{type}}" (click)="setGenre(type)">{{ type }}</button>
               </div>
-            </div>
         </div>
 
 
-<div class= "header_div"> 
-  <h2>I'm watching in...</h2>
+  <div class= "header_div"> 
+    <h2>I'm watching in...</h2>
+  </div>
+
+        <h1><select [(ngModel)]="selectedLocation" ><br><br>
+          <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
+        </select></h1><br>
+
+
 </div>
 
-      <h1><select [(ngModel)]="selectedLocation" ><br><br>
-        <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
-    </select></h1><br>
-
-
-</div>
 
   <div class="button_div">
       <button (click)="getAllMovies()" type="button" class="btn btn-primary" id ='suggestions'><a href="#search">See Suggestions</a></button>
@@ -78,14 +54,15 @@
 
 
 
-
-
 <!-- **results error** -->
-<h1 class="errorMessage" id="search">{{errorMessage}}</h1>
+<div id="search" *ngIf= 'this.errorMessage' class= "errorMessage">
+  <h1>{{errorMessage}}</h1>
+</div>
 
-<div class="search-smooth" id= "search">
 <!-- **search results container** -->
-<div class="search_results_container" >
+<div class="search-smooth" id= "search">
+<div  class="search_results_container">
+
  
     <div class="search_results_div"  *ngFor='let movie of list' >
      
@@ -96,46 +73,19 @@
       
         <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
 
+        <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary"><a href="#popup1">See Details</a></button> -->
        <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a> 
-      
+       <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" data-toggle='modal' data-target="#popup1">See Details</button> -->
     </div>
 
 </div>
 </div>
 
 <!-- **imdb modal** -->
-<!-- <div class="imdb_results_container" *ngIf='movie'>
-  <div class="imdb_results_div"> 
-    <div id="popup1" class="overlay"> 
-    <div class="popup">
-  <h2>{{ movie.title | replaceAscii }}</h2>
-      <a class="close" href="#suggestions">&times;</a>
-      <div class="content">
-          <ul>
-              <li *ngIf='movie'>
-                <div class="imdb_results_container">
-                  <p class="plot"> Plot: {{ movie.plot | replaceAscii  }} </p>
-                  <span>
-
-                  <p class="genre"> Genre: ({{movie.genre | replaceAscii }})</p>
-                  <p> Released: {{ movie.released }} </p>
-                  <p> Runtime: {{ movie.runtime }} </p>
-                  <p> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" class="linked">IMDB.com</a></p>
-
-                </span>
-              </div>
-            </li>
-          </ul>
-          <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div> -->
-
   <div class="imdb_results_container" *ngIf='movie'>
       <div class="imdb_results_div"> 
         <div id="popup1" class="overlay"> 
+
         <div class="popup">
       <h2>{{ movie.title | replaceAscii }}</h2>
           <!-- <a class="close" href="#suggestions">&times;</a> -->
@@ -144,18 +94,15 @@
               <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
               <ul>
                   <li *ngIf='movie'>
-                    <div class="imdb-image-container">
-                    </div>
                     <p>{{ movie.title | replaceAscii }}</p>
-                    <p> plot {{ movie.plot | replaceAscii }} </p>
-                    <p> genre: ({{movie.genre | replaceAscii}})</p>
-                    <p> released: {{ movie.released }} </p>
-                    <p> runtime: {{ movie.runtime }} </p>
-                    <p> view trailer & more details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >imdb</a></p>
+                    <p class="plot"> Plot: {{ movie.plot | replaceAscii }} </p>
+                    <p class="genre"> Genre: ({{movie.genre | replaceAscii}})</p>
+                    <p> Released: {{ movie.released }} </p>
+                    <p> Runtime: {{ movie.runtime }} </p>
+                    <p> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" class="linked">IMDB.com</a></p>
                  
                   </li>
               </ul>
-              <!-- <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/> -->
           </div>
         </div>
       </div>
