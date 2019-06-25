@@ -282,7 +282,7 @@
   opacity: 0;
   }
   
-  .overlay:target {
+  .overlay.visible {
   visibility: visible;
   opacity: 1;
   }

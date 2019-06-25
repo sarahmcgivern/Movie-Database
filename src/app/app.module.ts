@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { Api } from './services/api.service';
-import { ReplaceAscii } from './replace.pipe'
+import { ReplaceAscii } from './replace.pipe';
 
 
 const appRoutes: Routes = [
