@@ -113,18 +113,20 @@
       <div class="content">
           <ul>
               <li *ngIf='movie'>
-                <div class="imdb-image-container">
-                </div>
-                <p>{{ movie.title | replaceAscii }}</p>
-                <p> plot {{ movie.plot | replaceAscii }} </p>
-                <p> genre: ({{movie.genre | replaceAscii}})</p>
-                <p> released: {{ movie.released }} </p>
-                <p> runtime: {{ movie.runtime }} </p>
-                <p> view trailer & more details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >imdb</a></p>
-                <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
-             
-              </li>
+                <div class="imdb_results_container">
+                  <p class="plot"> Plot: {{ movie.plot | replaceAscii  }} </p>
+                  <span>
+
+                  <p class="genre"> Genre: ({{movie.genre | replaceAscii }})</p>
+                  <p> Released: {{ movie.released }} </p>
+                  <p> Runtime: {{ movie.runtime }} </p>
+                  <p> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" class="linked">IMDB.com</a></p>
+
+                </span>
+              </div>
+            </li>
           </ul>
+          <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
       </div>
     </div>
   </div>
