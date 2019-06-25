@@ -106,20 +106,23 @@
   <div class="imdb_results_div"> 
   <div id="popup1" class="overlay">
     <div class="popup">
-  <h2>{{ movie.title | replaceAscii }}</h2>
+  <!-- <h2>{{ movie.title | replaceAscii }}</h2> -->
       <a class="close" href="#">&times;</a>
       <div class="content">
           <ul>
               <li *ngIf='movie'>
-                <div class="imdb-image-container">
+                <div class="imdb_results_container">
+                  <p class="plot"> Plot: {{ movie.plot | replaceAscii  }} </p>
+                  <span>
+
+                  <p class="genre"> Genre: ({{movie.genre | replaceAscii }})</p>
+                  <p> Released: {{ movie.released }} </p>
+                  <p> Runtime: {{ movie.runtime }} </p>
+                  <p> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" class="linked">IMDB.com</a></p>
+
+                </span>
+                  <!-- <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/> -->
                 </div>
-                <!-- <p>{{ movie.title | replaceAscii }}</p> -->
-                <p class="plot"> Plot: {{ movie.plot | replaceAscii  }} </p>
-                <p class="genre"> Genre: ({{movie.genre | replaceAscii }})</p>
-                <p class="released"> Released: {{ movie.released }} </p>
-                <p class="runtime"> Runtime: {{ movie.runtime }} </p>
-                <p class="linked"> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >IMDB.com</a></p>
-                <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
               </li>
           </ul>
       </div>
