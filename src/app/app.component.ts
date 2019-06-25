@@ -31,7 +31,7 @@ interface ApiData {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent {
@@ -169,7 +169,7 @@ setGenre = (genre) => {
   if (genre === 'Watch With Kids' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Watch With Kids' && this.mediaType === 'Series') this.selectedGenre = '11177'};
   if (genre === 'Feel Nostalgic') {this.selectedGenre = '47147'};
   if (genre === 'Learn') {this.selectedGenre = '6839'};
-  if (genre === 'Only Kind Of Pay Attention') {this.selectedGenre = '5763'};
+  if (genre === 'Only Kind Of Pay Attention') {this.selectedGenre = '1252'};
   document.getElementById("Feel Badass").style.backgroundColor="";
   document.getElementById("Laugh").style.backgroundColor="";
   document.getElementById("Believe In Love").style.backgroundColor="";
