@@ -1,0 +1,265 @@
+<html>
+
+<body>
+
+
+
+
+
+<!-- **navbar** -->
+<nav class="navbar navbar-light bg-light navbar-custom" id="navRev">
+    <a class="navbar-brand" id="flixmeRev">flixme</a>
+    <form class="form-inline" id="inputCont">
+      <input [(ngModel)]="searchInput" class="form-control mr-sm-2 input-custom" type="text" placeholder="Search by keyword..." aria-label="Search" [ngModelOptions]="{standalone: true}" id="inputRev" />
+      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button>
+      <!-- <button (click) = 'show(i)' type="button" class="btn btn-primary"  data-toggle="modal" data-target=".bd-example-modal-lg">More info</button> -->
+    </form>
+  </nav>
+
+  <!-- <app-search></app-search> -->
+
+<!-- 
+**modal**
+    <div *ngIf="this.modalMovie" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">  
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <h1>{{ this.modalMovie.title }}</h1>
+      </div>
+    </div>
+
+    **old block buttons** -->
+    <!-- <div class="container">
+
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-primary">Movie</button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary">TV</button>
+          </div>
+          
+          <div class="col">
+            <button type="button" class="btn btn-primary">Either</button>
+          </div>
+        </div>
+    </div> -->
+
+
+
+<div class="form-container" id="formContId">
+  <div class= "header_div">  
+  <h2>I'm looking for a...</h2>
+  </div>   
+   
+    <!-- <div class="container">
+            <div class="row">
+              <div class="col">
+                <input type="radio" name="mediaType" value="Movies" (click)="setMediaType('Movie')">Movie
+              </div>
+              <div class="col">
+                    <input type="radio" name="mediaType" value="TV" (click)="setMediaType('Series')">TV Show
+              </div>
+              
+              <div class="col">
+                    <input type="radio" name="mediaType" value="Either" (click)="setMediaType('Any')">Either
+              </div>
+            </div>
+        </div> -->
+        <div class="container">
+
+                <div class="row" *ngFor="let type of mediaButtons">
+                  <div class="col">
+                    <button class="buttonInput"type="button" id="{{type}}" (click)="setMediaType(type)">{{ type }}</button>
+                  </div>
+                </div>
+            </div>
+
+
+  <!-- </div> -->
+  <!-- <div class= "header_div"> 
+<h2>I'd prefer a...</h2>
+  </div>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+                <input type="radio" name="dateRange" value="classic" (click)="setDateRange('classic')">Classic
+          </div>
+          <div class="col">
+                <input type="radio" name="dateRange" value="contemporary" (click)="setDateRange('contemporary')">Contemporary
+          </div>
+
+
+          
+          <div class="col">
+                <input type="radio" name="dateRange" value="suprise" (click)="setDateRange('suprise')">Suprise Me
+          </div>
+        </div>
+    </div> -->
+
+
+    <div class= "header_div" id="formContId">    
+<h2>I'm in the mood for...</h2>
+    </div>
+
+    <!-- <div class="container">
+        <div class="row">
+          <div class="col">
+                <input type="radio" name="mood" value="Action" (click)="setGenre('Action')">Action
+          </div>
+          <div class="col">
+                <input type="radio" name="mood" value="Comedy" (click)="setGenre('Comedy')">Comedy
+          </div>
+          
+          <div class="col">
+                <input type="radio" name="mood" value="Romance" (click)="setGenre('Romance')">Romance
+          </div>
+          <div class="w-100"></div>
+          <div class="col">
+                <input type="radio" name="mood" value="Drama" (click)="setGenre('Drama')">Drama
+          </div>
+          <div class="col">
+                <input type="radio" name="mood" value="Horror" (click)="setGenre('Horror')">Horror
+          </div>
+          <div class="col">
+                <input type="radio" name="mood" value="Children" (click)="setGenre('Children')">Children & Family
+
+          </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+
+            <div class="row" *ngFor="let type of genreButtons">
+              <div class="col">
+                <button class="buttonInput" type="button" id="{{type}}" (click)="setGenre(type)">{{ type }}</button>
+              </div>
+            </div>
+        </div>
+
+
+    <div class= "header_div"> 
+<h2>I'm watching in...</h2>
+</div>
+      <h1><select [(ngModel)]="selectedLocation" ><br><br>
+        <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
+    </select></h1><br>
+
+   
+
+      <!-- <ul>
+        <li *ngIf='movie'>
+           <p> {{ movie.filmid }} ({{movie.genre}})</p> -->
+          <!-- <p><img src="{{ movie.poster }}" target="_blank" class="url"/></p>
+          <p> plot: {{ movie.plot }} </p>
+          <p> released: {{ movie.released }} </p>
+          <p> movie length: {{ movie.runtime }} </p>
+          <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}" target="_blank" class="url">imdb</a></p>
+        </li>
+    </ul> -->
+
+
+
+  </div>
+
+  <div class="button_div">
+            <button (click)="getAllMovies()" type="button" class="btn btn-primary">See Suggestions</button>
+            
+            <!-- <button (click)="getAllImdbDetails()" type="button" class="btn btn-primary">Get IMDB Details</button> -->
+            
+  </div>
+            <!-- <ul>
+              <li *ngIf='movie'>
+                <p> title will go here when pulled from search results! <br>{{ movie.filmid }} ({{movie.genre}})</p>
+                <p><img src="{{ movie.poster }}" target="_blank" class="url"/></p>
+                <p> plot: {{ movie.plot }} </p>
+                <p> release date: {{ movie.released }} </p>
+                <p> runtime: {{ movie.runtime }} </p>
+                <p> view on <a href="{{ baseUrl }}{{movie.imdbid}}">imdb</a></p>
+              </li>
+            </ul> -->
+        
+
+
+    <!-- search results container -->
+    <!-- <div class="search_results_container">
+      <div  class="search_results_div"  *ngFor='let movie of list'>
+        <div class="image-container">
+        <img class='movie_img' src={{movie.image}} alt="">
+        </div>  
+        <h5 class="movie_heading">{{ movie.title }}</h5>
+        <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button">See Details</button>
+    </div>
+    </div> -->
+
+    <!-- <ul>
+        <li *ngIf='movie'>
+          <p> {{ movie.filmid }} ({{movie.genre}})</p>
+          <div class="imdb-image-container">
+          <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
+          </div>
+          <p> plot: {{ movie.plot }} </p>
+          <p> released: {{ movie.released }} </p>
+          <p> movie length: {{ movie.runtime }} </p>
+          <p> view on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+        </li>
+    </ul> -->
+
+
+
+  <!-- <div class="imdb_results_container" *ngIf='movie'>
+    <div class="imdb_results_div">
+    <ul>
+      <li *ngIf='movie'>
+        <div class="imdb-image-container">
+        <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
+        </div>
+        <p> Plot: {{ movie.plot }} </p>
+        <p> Genre: ({{movie.genre}})</p>
+        <p> Released: {{ movie.released }} </p>
+        <p> Movie Length: {{ movie.runtime }} </p>
+        <p> View on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+      </li>
+  </ul>
+  </div>
+</div> -->
+
+
+<div class="search_results_container">
+    <div class="search_results_div" *ngFor='let movie of list'>
+        <div class="image-container">
+            <img class='movie_img' src={{movie.image}} alt="">
+        </div>  
+        <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
+      <!-- <button (click)="getAllImdbDetails(movie.netflixid)" type="button" class="btn btn-primary imdb_button" href="#popup1" >See Details</button> -->
+       <a (click)="getAllImdbDetails(movie.netflixid)" class="button" href="#popup1">Let me Pop up</a> 
+  </div>
+</div>
+  
+<div class="imdb_results_container" *ngIf='movie'>
+  <div class="imdb_results_div"> 
+  <div id="popup1" class="overlay">
+    <div class="popup">
+  <h2>{{ movie.title }}</h2>
+      <a class="close" href="#">&times;</a>
+      <div class="content">
+          <ul>
+              <li *ngIf='movie'>
+                <div class="imdb-image-container">
+                <img class="imdb_img" src="{{ movie.poster }}" target="_blank" class="url"/>
+                </div>
+                <p> Plot: {{ movie.plot }} </p>
+                <p> Genre: ({{movie.genre}})</p>
+                <p> Released: {{ movie.released }} </p>
+                <p> Movie Length: {{ movie.runtime }} </p>
+                <p> View on <a href="{{ baseUrl }}{{ movie.imdbid }}">imdb</a></p>
+              </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+</body>
+
+</html>
