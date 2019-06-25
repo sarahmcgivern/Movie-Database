@@ -176,7 +176,7 @@ button:focus{
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   justify-content: center;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 
@@ -214,6 +214,10 @@ button:focus{
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   margin: auto;
+}
+.content {
+  display: flex;
+  flex-direction: row;
 }
 
 .imdb_button {

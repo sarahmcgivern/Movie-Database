@@ -104,7 +104,7 @@
 </div>
 
 <!-- **imdb modal** -->
-<div class="imdb_results_container" *ngIf='movie'>
+<!-- <div class="imdb_results_container" *ngIf='movie'>
   <div class="imdb_results_div"> 
     <div id="popup1" class="overlay"> 
     <div class="popup">
@@ -129,5 +129,32 @@
     </div>
   </div>
   </div>
-  </div>
+  </div> -->
+
+  <div class="imdb_results_container" *ngIf='movie'>
+      <div class="imdb_results_div"> 
+        <div id="popup1" class="overlay"> 
+        <div class="popup">
+      <h2>{{ movie.title | replaceAscii }}</h2>
+          <a class="close" href="#suggestions">&times;</a>
+          <div class="content">
+              <ul>
+                  <li *ngIf='movie'>
+                    <div class="imdb-image-container">
+                    </div>
+                    <p>{{ movie.title | replaceAscii }}</p>
+                    <p> plot {{ movie.plot | replaceAscii }} </p>
+                    <p> genre: ({{movie.genre | replaceAscii}})</p>
+                    <p> released: {{ movie.released }} </p>
+                    <p> runtime: {{ movie.runtime }} </p>
+                    <p> view trailer & more details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >imdb</a></p>
+                 
+                  </li>
+              </ul>
+              <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
   
