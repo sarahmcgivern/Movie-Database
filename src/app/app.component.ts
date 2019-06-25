@@ -81,6 +81,22 @@ export class AppComponent {
     {genreId: '1252', genreName: 'Campy Movies'}
   ];
 
+  genresMovies = [
+    {genreId: '1252', genreName: 'Campy Movies'},
+    {genreId: '9434', genreName: 'Cult Comedies'},
+    {genreId: '10256', genreName: 'Slapstick Comedies'},
+    {genreId: '9702', genreName: 'Screwball Comedies'},
+    {genreId: '1492', genreName: 'Sci-Fi'}
+];
+
+  genresTV = [
+    {genreId: '11559', genreName: 'Stand-up Comedy'},
+    {genreId: '9833', genreName: 'Reality TV'},
+    {genreId: '26052', genreName: 'Romantic TV Soaps'},
+    {genreId: '10375', genreName: 'TV Comedies'}
+  ];
+
+  mood: string;
   selectedGenre: string;
   mediaType: string;
 
@@ -101,7 +117,7 @@ export class AppComponent {
         this.errorMessage = null
       }
       else {
-        this.errorMessage = 'No Results Found, Please Try Searching Another Keyword!';
+        this.errorMessage = 'No Results Found';
         console.log(this.errorMessage);
       };
     },
@@ -113,6 +129,15 @@ export class AppComponent {
 
 
   getAllMovies = () => {
+    if (this.mood === 'Feel Badass') {this.selectedGenre = '801362'};
+  if (this.mood === 'Laugh') {this.selectedGenre = '6548'};
+  if (this.mood === 'Believe In Love') {this.selectedGenre = '8883'};
+  if (this.mood === 'Think') {this.selectedGenre = '5763'};
+  if (this.mood ==='Be Scared' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (this.mood === 'Be Scared' && this.mediaType === 'Series') this.selectedGenre = '83059'};
+  if (this.mood === 'Watch With Kids' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (this.mood === 'Watch With Kids' && this.mediaType === 'Series') this.selectedGenre = '11177'};
+  if (this.mood === 'Feel Nostalgic' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '31574'} else {if (this.mood === 'Feel Nostalgic' && this.mediaType === 'Series') this.selectedGenre = '46553'};
+  if (this.mood === 'Learn') {this.selectedGenre = '6839'};
+  if (this.mood === 'Only Kind Of Pay Attention' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = `${this.genresMovies[Math.floor(Math.random() * this.genresMovies.length)].genreId}`} else {if (this.mood === 'Only Kind Of Pay Attention' && this.mediaType === 'Series') this.selectedGenre = `${this.genresTV[Math.floor(Math.random() * this.genresTV.length)].genreId}`};
     
       // this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
@@ -161,15 +186,18 @@ setMediaType = (type) => {
 
 
 setGenre = (genre) => {
-  if (genre === 'Feel Badass') {this.selectedGenre = '801362'};
-  if (genre === 'Laugh') {this.selectedGenre = '6548'};
-  if (genre === 'Believe In Love') {this.selectedGenre = '8883'};
-  if (genre === 'Think') {this.selectedGenre = '5763'};
-  if (genre ==='Be Scared' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Be Scared' && this.mediaType === 'Series') this.selectedGenre = '83059'};
-  if (genre === 'Watch With Kids' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Watch With Kids' && this.mediaType === 'Series') this.selectedGenre = '11177'};
-  if (genre === 'Feel Nostalgic') {this.selectedGenre = '47147'};
-  if (genre === 'Learn') {this.selectedGenre = '6839'};
-  if (genre === 'Only Kind Of Pay Attention') {this.selectedGenre = '1252'};
+
+  this.mood = genre;
+  // if (genre === 'Feel Badass') {this.selectedGenre = '801362'};
+  // if (genre === 'Laugh') {this.selectedGenre = '6548'};
+  // if (genre === 'Believe In Love') {this.selectedGenre = '8883'};
+  // if (genre === 'Think') {this.selectedGenre = '5763'};
+  // if (genre ==='Be Scared' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Be Scared' && this.mediaType === 'Series') this.selectedGenre = '83059'};
+  // if (genre === 'Watch With Kids' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Watch With Kids' && this.mediaType === 'Series') this.selectedGenre = '11177'};
+  // if (genre === 'Feel Nostalgic' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '31574'} else {if (genre === 'Feel Nostalgic' && this.mediaType === 'Series') this.selectedGenre = '46553'};
+  // if (genre === 'Learn') {this.selectedGenre = '6839'};
+  // if (genre === 'Only Kind Of Pay Attention' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = `${this.genresMovies[Math.floor(Math.random() * this.genresMovies.length)].genreId}`} else {if (genre === 'Only Kind Of Pay Attention' && this.mediaType === 'Series') this.selectedGenre = `${this.genresTV[Math.floor(Math.random() * this.genresTV.length)].genreId}`};
+
   document.getElementById("Feel Badass").style.backgroundColor="";
   document.getElementById("Laugh").style.backgroundColor="";
   document.getElementById("Believe In Love").style.backgroundColor="";
