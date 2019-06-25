@@ -59,6 +59,9 @@
   <h1>{{errorMessage}}</h1>
 </div>
 
+
+
+
 <!-- **search results container** -->
 <div class="search-smooth" id= "search">
 <div  class="search_results_container">
@@ -75,20 +78,19 @@
 
         <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary"><a href="#popup1">See Details</a></button> -->
        <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a> 
-       <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" data-toggle='modal' data-target="#popup1">See Details</button> -->
+    
     </div>
 
 </div>
 </div>
 
-<!-- **imdb modal** -->
-  <div class="imdb_results_container" *ngIf='movie'>
-      <div class="imdb_results_div"> 
-        <div id="popup1" class="overlay"> 
 
+<!-- **imdb modal** -->
+
+  <div class="imdb_results_container" *ngIf='movie'> 
+    <div class="imdb_results_div"> 
+        <div id="popup1" class="overlay"> 
         <div class="popup">
-      <h2>{{ movie.title | replaceAscii }}</h2>
-          <!-- <a class="close" href="#suggestions">&times;</a> -->
           <a class="close" href="#search">&times;</a>
           <div class="content">
               <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
@@ -100,7 +102,6 @@
                     <p> Released: {{ movie.released }} </p>
                     <p> Runtime: {{ movie.runtime }} </p>
                     <p> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" class="linked">IMDB.com</a></p>
-                 
                   </li>
               </ul>
           </div>
@@ -108,4 +109,5 @@
       </div>
       </div>
       </div>
+   
   

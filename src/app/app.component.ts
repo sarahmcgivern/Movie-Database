@@ -41,8 +41,6 @@ export class AppComponent {
   movie:any;
   // movies: Movie[];
   list: object[];
-  modalMovie;
-  modalIndex: number;
   searchInput: string = null;
   typeMovie: boolean = false;
   typeTv: boolean = false;
@@ -162,9 +160,10 @@ export class AppComponent {
 getAllImdbDetails = (netflixid) => {
    this.api.getImdbDetails(netflixid).subscribe(data => {
      this.movie=data;
-    console.log(this.movie)
-   });
+    console.log(this.movie);
+   });   
 }
+
 setMediaType = (type) => {
   this.mediaType = type;
   console.log(this.mediaType);
