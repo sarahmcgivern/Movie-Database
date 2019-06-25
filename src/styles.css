@@ -10,4 +10,8 @@ body {
     rgb(145, 54, 161217));
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: darkorchid;
+    height: 100vh;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
 }
