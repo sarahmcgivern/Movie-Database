@@ -101,7 +101,7 @@ export class AppComponent {
         this.errorMessage = null
       }
       else {
-        this.errorMessage = 'No Results Found';
+        this.errorMessage = 'No Results Found, Please Try Searching Another Keyword!';
         console.log(this.errorMessage);
       };
     },
@@ -133,7 +133,7 @@ getAllImdbDetails = (netflixid) => {
    this.api.getImdbDetails(netflixid).subscribe(data => {
      this.movie=data;
     console.log(this.movie)
-   })
+   });
 }
 setMediaType = (type) => {
   this.mediaType = type;
