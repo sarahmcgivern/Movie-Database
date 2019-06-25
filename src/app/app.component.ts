@@ -101,7 +101,7 @@ export class AppComponent {
         this.errorMessage = null
       }
       else {
-        this.errorMessage = 'No Results Found, Please Try Searching Another Keyword!';
+        this.errorMessage = 'No Results Found';
         console.log(this.errorMessage);
       };
     },
