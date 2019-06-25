@@ -133,7 +133,7 @@ getAllImdbDetails = (netflixid) => {
    this.api.getImdbDetails(netflixid).subscribe(data => {
      this.movie=data;
     console.log(this.movie)
-   })
+   });
 }
 setMediaType = (type) => {
   this.mediaType = type;
