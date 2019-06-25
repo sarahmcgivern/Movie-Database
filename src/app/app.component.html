@@ -81,11 +81,14 @@
 
 
 <!-- **results error** -->
-<h1 class="errorMessage" id="search">{{errorMessage}}</h1>
+<div id="search" *ngIf= 'this.errorMessage' class= "error">
+<h1>{{errorMessage}}</h1>
+</div>
 
 <div class="search-smooth" id= "search">
 <!-- **search results container** -->
-<div class="search_results_container" >
+<div  class="search_results_container">
+
  
     <div class="search_results_div"  *ngFor='let movie of list' >
      
@@ -96,8 +99,9 @@
       
         <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
 
-       <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a> 
-      
+        <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary"><a href="#popup1">See Details</a></button> -->
+       <!-- <a (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" href="#popup1">See Details</a>  -->
+       <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" data-toggle='modal' data-target="#popup1">See Details</button>
     </div>
 
 </div>
@@ -136,6 +140,7 @@
   <div class="imdb_results_container" *ngIf='movie'>
       <div class="imdb_results_div"> 
         <div id="popup1" class="overlay"> 
+
         <div class="popup">
       <h2>{{ movie.title | replaceAscii }}</h2>
           <!-- <a class="close" href="#suggestions">&times;</a> -->
