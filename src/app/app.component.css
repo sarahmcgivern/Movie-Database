@@ -96,10 +96,11 @@
   height: 40px;
   padding: 5px;
   float: center;
-  background-image: linear-gradient(-215deg, 
+  /* background-image: linear-gradient(-215deg, 
   rgb(0, 191, 255), 
   rgb(45, 148, 243) 55%, 
-  rgb(145, 54, 161217));
+  rgb(145, 54, 161217)); */
+  background-color: darkorchid;
   }
   
   li {
@@ -137,7 +138,7 @@
   }
   
   #suggestions{
-  width: 60%;
+  width: 40%;
   margin-top: 20px; 
   margin-bottom: 10px;
   }
@@ -179,10 +180,11 @@
   }
   
   .search_results_div {
-  background-image: linear-gradient(-215deg, 
+  /* background-image: linear-gradient(-215deg, 
   rgb(0, 191, 255), 
   rgb(45, 148, 243) 55%,
-  rgb(145, 54, 161217));
+  rgb(145, 54, 161217)); */
+  background-color: darkorchid;
   border: 1px solid rgb(172, 244, 252);
   width: 180px;
   padding: 20px;
@@ -249,16 +251,20 @@
 
   a:hover {
     color: white;
+    text-decoration: none;
+
   }
   
   .imdb_img {
     /* width: 100%; */
-    max-width: 175px;
+    /* max-width: 175px; */
+    max-width: 300px;
     margin: auto;
     align-self: right;
     border: 10px solid white;
     border-radius: 5px;
     float: right;
+    /* width: 50%; */
   }
   
   .overlay {
@@ -296,6 +302,7 @@
   ul {
   margin: auto;
   padding: 0px;
+  /* width: 50%; */
   }
   
   .popup h2 {
@@ -327,7 +334,7 @@
   }
   
   p {
-    margin: auto;
+    margin: 10px;
     margin-top: 0.5em;
   }
   

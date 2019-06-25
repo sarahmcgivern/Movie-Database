@@ -186,6 +186,7 @@ setMediaType = (type) => {
 
 
 setGenre = (genre) => {
+
   this.mood = genre;
   // if (genre === 'Feel Badass') {this.selectedGenre = '801362'};
   // if (genre === 'Laugh') {this.selectedGenre = '6548'};
@@ -196,6 +197,7 @@ setGenre = (genre) => {
   // if (genre === 'Feel Nostalgic' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '31574'} else {if (genre === 'Feel Nostalgic' && this.mediaType === 'Series') this.selectedGenre = '46553'};
   // if (genre === 'Learn') {this.selectedGenre = '6839'};
   // if (genre === 'Only Kind Of Pay Attention' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = `${this.genresMovies[Math.floor(Math.random() * this.genresMovies.length)].genreId}`} else {if (genre === 'Only Kind Of Pay Attention' && this.mediaType === 'Series') this.selectedGenre = `${this.genresTV[Math.floor(Math.random() * this.genresTV.length)].genreId}`};
+
   document.getElementById("Feel Badass").style.backgroundColor="";
   document.getElementById("Laugh").style.backgroundColor="";
   document.getElementById("Believe In Love").style.backgroundColor="";
