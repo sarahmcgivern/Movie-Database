@@ -61,9 +61,20 @@ select {
   flex-direction: column;
   align-items: center;
   margin: auto;  
-
 }
 
+.plot {
+  font-size: 10px;
+}
+
+.genre {
+  font-style: italic;
+  font-size: 10px;
+}
+
+p {
+  font-size: 10px;
+}
 
 }
 
@@ -88,7 +99,7 @@ select {
     padding-left: 15px;
     padding-right:15px;
     border-radius: 10px;
-    color: darkorchid;
+    color: white;
     font-size: 50px;
   }
 
@@ -112,7 +123,6 @@ select {
 }
 
 
-
 .navbar-custom {
   background-color: transparent !important;
   
@@ -121,6 +131,10 @@ select {
 .navbar-brand {
   font-size: 40px;
   margin-left: 40px;
+  color: white;
+}
+
+.navbar-brand:hover {
   color: white;
 }
 
@@ -145,7 +159,7 @@ select {
 }
 
 .btn-outline-success:focus {
-  outline:0 none;
+  outline: darkorchid;
 }
 
 #searchButton {
@@ -153,12 +167,12 @@ select {
   color: darkorchid;
   background-color: #95f4ff;
   height: 45px;
-  outline:0 none;
+  outline: darkorchid;
   border-color: none;
 }
 
 #searchButton:focus {
-  outline:0 none;
+  outline: darkorchid;
 }
 
 #searchButton:hover {
@@ -166,16 +180,18 @@ select {
 }
 
 .form-container {
-  /* background-color:  rgb(50, 255, 248); */
   background-color: #95f4ff;
   width: 60%;
   margin: 0 auto;
-  /* margin-top: 60px; */
-  /* margin-bottom: -10px; */
   border-radius: 15px;
   position: relative;
   padding: 10px 5px;
-  /* border: 1px solid white; */
+}
+
+.container {
+  width: 400px;
+  height: 200px;
+  overflow-y: auto;
 }
 
 h2 {
@@ -244,15 +260,30 @@ button:focus{
   font-size: 20px;
 }
 
+.buttonInput:hover {
+  background-color: #95f4ff;
+  border: 2px solid rgb(0, 123, 255);
+  border-radius: 15px;
+  }
+
 #suggestions{
   width: 60%;
   margin-top: 20px; 
   margin-bottom: 10px;
 }
 
+#suggestions:hover {
+  background-color: rgb(0, 123, 255);
+}
+
 .button_div {
   text-align: center;
   align-items: center;
+}
+
+.search-smooth {
+  /* height: auto; */
+  height: 93.5%;
 }
 
 .search_results_container {
@@ -263,30 +294,22 @@ button:focus{
   font-family: Poppins, sans-serif;
   font-weight: lighter;
   justify-content: center;
+    /* overflow-y: auto; */
 }
 
-.error_container {
-  background-color:rgb(105, 50, 172);
-  border: 1px solid rgb(172, 244, 252);
-  width: 180px;
-  padding: 20px;
-  margin: 5px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-  font-size: 10px;
-  flex-wrap: wrap;
-  /* font-family: 'Source Sans Pro', sans-serif; */
-  font-family: Poppins, sans-serif;
-  font-weight: lighter;
+.errorMessage {
+  /* font-size: 20px; */
+  color: white;
+  margin: auto;
+  width: 60%;
+  height: 80px;
+  margin-top: 20px; 
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .search_results_div {
-  background-image: linear-gradient(-215deg, 
-  rgb(0, 191, 255), 
-  rgb(45, 148, 243) 55%,
-  rgb(145, 54, 161217));
+  background-color: darkorchid;
   border: 1px solid rgb(172, 244, 252);
   width: 180px;
   padding: 20px;
@@ -317,18 +340,22 @@ button:focus{
   margin: auto;
 }
 
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
 .imdb_button {
   width: 100%;
 }
 
 .imdb_results_container {
   display: flex;
-  flex-direction: row;  
+  flex-direction: column;  
   flex-wrap: wrap;
   width: 100%;
   font-family: Poppins, sans-serif;
   font-weight: lighter;
-  justify-content: center;
 }
 
 .imdb_results_div {
@@ -344,18 +371,17 @@ button:focus{
 }
 
 a {
-  color: #00ffff;
-}
+  color: darkorchid;
+  }
 
-a:hover {
-  color: white;
-}
+  a:hover {
+    color: white;
+  }
 
 .imdb_img {
-  width: 100%;
+  /* width: 100%; */
   max-width: 175px;
   margin: auto;
-  /* align-content: center; */
   align-self: right;
   border: 10px solid white;
   border-radius: 5px;
@@ -380,18 +406,19 @@ a:hover {
 }
 
 .popup {
-  margin: 70px auto;
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
   padding: 20px;
   background-image: linear-gradient(-215deg, 
   rgb(0, 191, 255), 
   rgb(45, 148, 243) 55%,
   rgb(145, 54, 161217));
-  /* background-image: '{{movie.poster}}'; */
   border-radius: 5px;
   width: 70%;
   position: relative;
   transition: all 5s ease-in-out;
-}
+  }
 
 ul {
   margin: auto;
@@ -401,7 +428,7 @@ ul {
 .popup h2 {
   margin-top: 0;
   color: #333;
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .popup .close {
@@ -427,16 +454,18 @@ ul {
 }
 
 p {
-  margin-top: 1em;
-  font-family: 'Poppins', sans-serif;
+  margin: auto;
+  margin-top: 0.5em;
 }
 
-
 .plot {
-  font-size: 20px;
+font-size: 20px;
 }
 
 .genre {
-  font-style: italic;
-  /* font-size: 10px; */
+font-style: italic;
+}
+
+.linked {
+  color: #00ffff;
 }
