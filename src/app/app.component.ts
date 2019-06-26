@@ -2,31 +2,30 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Api } from "./services/api.service";
 
-interface MovieInfo {
-  title: string;
-}
+// interface MovieInfo {
+//   title: string;
+// }
 
-interface Movie {
-  count: number;
-  movie: MovieInfo[];
-}
+// interface Movie {
+//   count: number;
+//   movie: MovieInfo[];
+// }
 
-interface IMDB {
-  filmid: string;
-  genre: string;
-  plot: string;
-  poster: string;
-  released: string;
-  runtime: string;
-  // imdbid: 'tt6175086';
-}
+// interface IMDB {
+//   filmid: string;
+//   genre: string;
+//   plot: string;
+//   poster: string;
+//   released: string;
+//   runtime: string;
+// }
 
-interface ApiData {
-  items: Movie;
-  hits: Movie[];
-  imdbResults: IMDB;
-  results: IMDB[];
-}
+// interface ApiData {
+//   items: Movie;
+//   hits: Movie[];
+//   imdbResults: IMDB;
+//   results: IMDB[];
+// }
 
 @Component({
   selector: "app-root",
@@ -121,13 +120,7 @@ export class AppComponent {
 
         if (this.list.length > 0) {
           this.errorMessage = null;
-        }
-        // else {
-        //   this.errorMessage = 'No Results Found';
-        //   console.log(this.errorMessage);
-
-        // };
-        else {
+        } else {
           this.errorMessage = "No Results Found";
           console.log(this.errorMessage);
         }
@@ -228,6 +221,7 @@ export class AppComponent {
       console.log(this.movie);
     });
   };
+
   setMediaType = type => {
     this.mediaType = type;
     console.log(this.mediaType);
