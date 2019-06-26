@@ -1,15 +1,17 @@
+html {
+  scroll-behavior: smooth;
+  /* overflow-y: scroll; */
+}
+
 body {
-    color: darkorchid;
-    height: 100vh;
-    /* display: flex; */
-    margin: 0 auto;
-    /* font-family: Poppins, sans-serif; */
-    font-family: 'Poppins', sans-serif;
     background-image: linear-gradient(-215deg, 
     rgb(0, 191, 255), 
     rgb(45, 148, 243) 55%,
     rgb(145, 54, 161217));
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: darkorchid;
+    height: 100vh;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
 }
-

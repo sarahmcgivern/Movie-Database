@@ -1,9 +1,10 @@
 <!-- **navbar** -->
 <nav class="navbar navbar-light bg-light navbar-custom" id="navRev">
-    <a class="navbar-brand" id="flixmeRev">flixme</a>
+    <span class="navbar-brand" id="flixmeRev">flixme</span>
     <form class="form-inline" id="inputCont">
       <input [(ngModel)]="searchInput" class="form-control mr-sm-2 input-custom" type="text" placeholder="Search by keyword..." aria-label="Search" [ngModelOptions]="{standalone: true}" id="inputRev" />
-      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button>
+      <!-- <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button> -->
+      <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit"><a href="#search">Search</a></button>
     </form>
   </nav>
 
@@ -18,11 +19,11 @@
  
         <div class="container">
 
-                <div class="row" *ngFor="let type of mediaButtons">
-                  <div class="col">
+                <!-- <div class="row" *ngFor="let type of mediaButtons"> -->
+                  <div class="col" *ngFor="let type of mediaButtons">
                     <button class="buttonInput"type="button" id="{{type}}" (click)="setMediaType(type)">{{ type }}</button>
                   </div>
-                </div>
+                <!-- </div> -->
             </div>
 
 
@@ -71,17 +72,22 @@
 </div>
 
   <div class="button_div">
-      <button (click)="getAllMovies()" type="button" class="btn btn-primary" id ='suggestions'>See Suggestions</button>
+      <button (click)="getAllMovies()" type="button" class="btn btn-primary" id ='suggestions'><a href="#search">See Suggestions</a></button>
   </div>
-    
+
+
+
+
+
 
 <!-- **results error** -->
-<h1>{{errorMessage}}</h1>
+<h1 class="errorMessage" id="search">{{errorMessage}}</h1>
 
+<div class="search-smooth" id= "search">
 <!-- **search results container** -->
-<div class="search_results_container">
+<div class="search_results_container" >
  
-    <div class="search_results_div" *ngFor='let movie of list'>
+    <div class="search_results_div"  *ngFor='let movie of list' >
      
         <div class="image-container">
             <img class='movie_img' src={{movie.image}} alt="">
@@ -95,31 +101,64 @@
     </div>
 
 </div>
+</div>
 
 <!-- **imdb modal** -->
-<div class="imdb_results_container" *ngIf='movie'>
+<!-- <div class="imdb_results_container" *ngIf='movie'>
   <div class="imdb_results_div"> 
-  <div id="popup1" class="overlay">
+    <div id="popup1" class="overlay"> 
     <div class="popup">
-  <h2>{{ movie.title }}</h2>
-      <a class="close" href="#">&times;</a>
+  <h2>{{ movie.title | replaceAscii }}</h2>
+      <a class="close" href="#suggestions">&times;</a>
       <div class="content">
           <ul>
               <li *ngIf='movie'>
-                <div class="imdb-image-container">
-                </div>
-                <!-- <p>{{ movie.title | replaceAscii }}</p> -->
-                <p class="plot"> Plot: {{ movie.plot }} </p>
-                <p class="genre"> Genre: ({{movie.genre}})</p>
-                <p class="released"> Released: {{ movie.released }} </p>
-                <p class="runtime"> Runtime: {{ movie.runtime }} </p>
-                <p class="linked"> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >IMDB.com</a></p>
-                <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
-              </li>
+                <div class="imdb_results_container">
+                  <p class="plot"> Plot: {{ movie.plot | replaceAscii  }} </p>
+                  <span>
+
+                  <p class="genre"> Genre: ({{movie.genre | replaceAscii }})</p>
+                  <p> Released: {{ movie.released }} </p>
+                  <p> Runtime: {{ movie.runtime }} </p>
+                  <p> View Trailer & More Details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" class="linked">IMDB.com</a></p>
+
+                </span>
+              </div>
+            </li>
           </ul>
+          <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
       </div>
     </div>
   </div>
   </div>
-  </div>
+  </div> -->
+
+  <div class="imdb_results_container" *ngIf='movie'>
+      <div class="imdb_results_div"> 
+        <div id="popup1" class="overlay"> 
+        <div class="popup">
+      <h2>{{ movie.title | replaceAscii }}</h2>
+          <!-- <a class="close" href="#suggestions">&times;</a> -->
+          <a class="close" href="#search">&times;</a>
+          <div class="content">
+              <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/>
+              <ul>
+                  <li *ngIf='movie'>
+                    <div class="imdb-image-container">
+                    </div>
+                    <p>{{ movie.title | replaceAscii }}</p>
+                    <p> plot {{ movie.plot | replaceAscii }} </p>
+                    <p> genre: ({{movie.genre | replaceAscii}})</p>
+                    <p> released: {{ movie.released }} </p>
+                    <p> runtime: {{ movie.runtime }} </p>
+                    <p> view trailer & more details on <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" >imdb</a></p>
+                 
+                  </li>
+              </ul>
+              <!-- <img class="imdb_img" src="{{ movie.poster }}" target="_blank"/> -->
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
   
