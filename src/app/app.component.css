@@ -20,8 +20,9 @@
 
 .input-custom {
   /* width: 300px !important; */
-  width: 80%;
+  /* width: 80%; */
   height: 45px;
+  margin-bottom: 2px;
 }
 
 .btn-outline-success {
@@ -29,14 +30,6 @@
   color: darkorchid;
   background-color: #95f4ff;
   height: 45px;
-}
-
-.btn-outline-success:hover {
-  background-color: rgb(0, 123, 255);
-}
-
-.btn-outline-success:focus {
-  outline: darkorchid;
 }
 
 #searchButton {
@@ -64,6 +57,10 @@
   border-radius: 15px;
   position: relative;
   padding: 10px 5px;
+}
+
+.form-control {
+  border-radius: 15px;
 }
 
 .container {
@@ -109,7 +106,7 @@ h1 {
 }
 
 select {
-  font-size: 25px;
+  font-size: 12px;
   color: white;
   width: 60%;
   height: 40px;
@@ -122,8 +119,8 @@ li {
   list-style: none;
 }
 
-button:focus {
-  outline: 0 none;
+.btn {
+  border-radius: 15px;
 }
 
 .btn-primary {
@@ -159,6 +156,7 @@ button:focus {
   height: 50px;
   border-radius: 15px;
 }
+
 #suggestions:hover {
   background-color: rgb(0, 123, 255);
 }
@@ -220,6 +218,7 @@ button:focus {
   font-weight: lighter;
   margin: auto;
 }
+
 /* .content {
   display: flex;
   flex-direction: row;
@@ -257,6 +256,7 @@ button:focus {
 
 a {
   color: darkorchid;
+  font-size: 10px;
 }
 
 a:hover {
@@ -362,6 +362,7 @@ p {
 }
 
 /* TABLET */
+
 @media only screen and (min-width: 768px) {
   .navbar {
     background-color: transparent !important;
@@ -371,28 +372,65 @@ p {
     margin-left: 3%;
     margin-right: 3%;
   }
-
   .navbar-brand {
     font-size: 50px;
     /* margin-left: 40px; */
     color: darkorchid;
   }
-
   .searchRight {
     display: flex;
     flex-direction: row;
   }
-
   .input-custom {
     width: 300px !important;
     height: 45px;
   }
+  .buttonInput {
+    font-size: 18px;
+  }
+  select {
+    font-size: 20px;
+  }
+  a {
+    font-size: 20px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .plot {
+    font-size: 12px;
+  }
+  .genre {
+    font-size: 12px;
+  }
 }
 
 /* DESKTOP */
+
 @media only screen and (min-width: 1200px) {
   .content {
     display: flex;
     flex-direction: row;
+  }
+  .buttonInput {
+    font-size: 20px;
+  }
+  select {
+    font-size: 25px;
+  }
+  a {
+    font-size: 20px;
+  }
+  li {
+    padding: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .plot {
+    font-size: 15px;
+  }
+  .genre {
+    font-size: 15px;
   }
 }
