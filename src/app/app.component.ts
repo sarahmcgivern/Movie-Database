@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Api } from './services/api.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Api } from "./services/api.service";
 
 interface MovieInfo {
   title: string;
@@ -29,14 +29,12 @@ interface ApiData {
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app2.component.html',
-  styleUrls: ['./app2.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
-
 export class AppComponent {
-  title = 'Movie-Database';
-
+  title = "Movie-Database";
 
   movie: any;
   // movies: Movie[];
@@ -45,53 +43,53 @@ export class AppComponent {
   typeMovie: boolean = false;
   typeTv: boolean = false;
   videoType: string;
-  startYear: string = '1900';
-  endYear: string = '2019';
+  startYear: string = "1900";
+  endYear: string = "2019";
   films: object[];
-  imdbId: string = '80998296';
-  baseUrl: string = 'https://www.imdb.com/title/';
+  imdbId: string = "80998296";
+  baseUrl: string = "https://www.imdb.com/title/";
   errorMessage: string;
   locations = [
-    { id: '23', name: 'Australia' },
-    { id: '33', name: 'Canada' },
-    { id: '40', name: 'Denmark' },
-    { id: '44', name: 'Finland' },
-    { id: '45', name: 'France' },
-    { id: '39', name: 'Germany' },
-    { id: '67', name: 'Netherlands' },
-    { id: '68', name: 'Norway' },
-    { id: '46', name: 'United Kingdom' },
-    { id: '78', name: 'United States' }
+    { id: "23", name: "Australia" },
+    { id: "33", name: "Canada" },
+    { id: "40", name: "Denmark" },
+    { id: "44", name: "Finland" },
+    { id: "45", name: "France" },
+    { id: "39", name: "Germany" },
+    { id: "67", name: "Netherlands" },
+    { id: "68", name: "Norway" },
+    { id: "46", name: "United Kingdom" },
+    { id: "78", name: "United States" }
   ];
 
-  selectedLocation: string = '78';
+  selectedLocation: string = "78";
 
   genres = [
-    { genreId: '1365', genreName: 'Action & Adventure' },
-    { genreId: '5763', genreName: 'Dramas' },
-    { genreId: '6839', genreName: 'Documentaries' },
-    { genreId: '7627', genreName: 'Cult Movies' },
-    { genreId: '3979', genreName: 'Critically-acclaimed Films' },
-    { genreId: '1492', genreName: 'Sci-fi & Fantasy' },
-    { genreId: '83', genreName: 'TV Shows' },
-    { genreId: '6548', genreName: 'Comedies' },
-    { genreId: '47147', genreName: 'Classics' },
-    { genreId: '1252', genreName: 'Campy Movies' }
+    { genreId: "1365", genreName: "Action & Adventure" },
+    { genreId: "5763", genreName: "Dramas" },
+    { genreId: "6839", genreName: "Documentaries" },
+    { genreId: "7627", genreName: "Cult Movies" },
+    { genreId: "3979", genreName: "Critically-acclaimed Films" },
+    { genreId: "1492", genreName: "Sci-fi & Fantasy" },
+    { genreId: "83", genreName: "TV Shows" },
+    { genreId: "6548", genreName: "Comedies" },
+    { genreId: "47147", genreName: "Classics" },
+    { genreId: "1252", genreName: "Campy Movies" }
   ];
 
   genresMovies = [
-    {genreId: '1252', genreName: 'Campy Movies'},
-    {genreId: '9434', genreName: 'Cult Comedies'},
-    {genreId: '10256', genreName: 'Slapstick Comedies'},
-    {genreId: '6548', genreName: 'Comedies'},
-    {genreId: '31694', genreName: 'Classic Comedies'}
-];
+    { genreId: "1252", genreName: "Campy Movies" },
+    { genreId: "9434", genreName: "Cult Comedies" },
+    { genreId: "10256", genreName: "Slapstick Comedies" },
+    { genreId: "6548", genreName: "Comedies" },
+    { genreId: "31694", genreName: "Classic Comedies" }
+  ];
 
   genresTV = [
-    { genreId: '11559', genreName: 'Stand-up Comedy' },
-    { genreId: '9833', genreName: 'Reality TV' },
-    { genreId: '26052', genreName: 'Romantic TV Soaps' },
-    { genreId: '10375', genreName: 'TV Comedies' }
+    { genreId: "11559", genreName: "Stand-up Comedy" },
+    { genreId: "9833", genreName: "Reality TV" },
+    { genreId: "26052", genreName: "Romantic TV Soaps" },
+    { genreId: "10375", genreName: "TV Comedies" }
   ];
 
   mood: string;
@@ -100,47 +98,107 @@ export class AppComponent {
 
   mediaButtons = ["Movie", "Series", "Any"];
 
-  genreButtons = ["Feel Badass", "Laugh", "Believe In Love", "Think", "Be Scared", "Watch With Kids", "Feel Nostalgic", "Learn", "Only Kind Of Pay Attention"];
+  genreButtons = [
+    "Feel Badass",
+    "Laugh",
+    "Believe In Love",
+    "Think",
+    "Be Scared",
+    "Watch With Kids",
+    "Feel Nostalgic",
+    "Learn",
+    "Only Kind Of Pay Attention"
+  ];
 
-
-
-  constructor(private api: Api, private router: Router) { }
-
+  constructor(private api: Api, private router: Router) {}
 
   searchAllMovies = () => {
-    this.api.searchMovie(this.searchInput).subscribe((data: any) => {
-      this.list = data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()));
+    this.api.searchMovie(this.searchInput).subscribe(
+      (data: any) => {
+        this.list = data.ITEMS.filter(movie =>
+          movie.title.toLowerCase().includes(this.searchInput.toLowerCase())
+        );
 
-      if (this.list.length > 0) {
-        this.errorMessage = null
-      }
-      // else {
-      //   this.errorMessage = 'No Results Found';
-      //   console.log(this.errorMessage);
+        if (this.list.length > 0) {
+          this.errorMessage = null;
+        }
+        // else {
+        //   this.errorMessage = 'No Results Found';
+        //   console.log(this.errorMessage);
 
-      // };
-      else {
-        this.errorMessage = 'No Results Found';
-        console.log(this.errorMessage);
-      };
-    },
+        // };
+        else {
+          this.errorMessage = "No Results Found";
+          console.log(this.errorMessage);
+        }
+      },
       error => {
         this.errorMessage = error.message;
-      });
-
+      }
+    );
   };
 
-
   getAllMovies = () => {
-    if (this.mood === 'Feel Badass') { this.selectedGenre = '801362' };
-    if (this.mood === 'Laugh') { this.selectedGenre = '6548' };
-    if (this.mood === 'Believe In Love') { this.selectedGenre = '8883' };
-    if (this.mood === 'Think') { this.selectedGenre = '5763' };
-    if (this.mood === 'Be Scared' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) { this.selectedGenre = '8711' } else { if (this.mood === 'Be Scared' && this.mediaType === 'Series') this.selectedGenre = '83059' };
-    if (this.mood === 'Watch With Kids' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) { this.selectedGenre = '783' } else { if (this.mood === 'Watch With Kids' && this.mediaType === 'Series') this.selectedGenre = '11177' };
-    if (this.mood === 'Feel Nostalgic' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) { this.selectedGenre = '31574' } else { if (this.mood === 'Feel Nostalgic' && this.mediaType === 'Series') this.selectedGenre = '46553' };
-    if (this.mood === 'Learn') { this.selectedGenre = '6839' };
-    if (this.mood === 'Only Kind Of Pay Attention' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) { this.selectedGenre = `${this.genresMovies[Math.floor(Math.random() * this.genresMovies.length)].genreId}` } else { if (this.mood === 'Only Kind Of Pay Attention' && this.mediaType === 'Series') this.selectedGenre = `${this.genresTV[Math.floor(Math.random() * this.genresTV.length)].genreId}` };
+    if (this.mood === "Feel Badass") {
+      this.selectedGenre = "801362";
+    }
+    if (this.mood === "Laugh") {
+      this.selectedGenre = "6548";
+    }
+    if (this.mood === "Believe In Love") {
+      this.selectedGenre = "8883";
+    }
+    if (this.mood === "Think") {
+      this.selectedGenre = "5763";
+    }
+    if (
+      this.mood === "Be Scared" &&
+      (this.mediaType === "Movie" || this.mediaType === "Any")
+    ) {
+      this.selectedGenre = "8711";
+    } else {
+      if (this.mood === "Be Scared" && this.mediaType === "Series")
+        this.selectedGenre = "83059";
+    }
+    if (
+      this.mood === "Watch With Kids" &&
+      (this.mediaType === "Movie" || this.mediaType === "Any")
+    ) {
+      this.selectedGenre = "783";
+    } else {
+      if (this.mood === "Watch With Kids" && this.mediaType === "Series")
+        this.selectedGenre = "11177";
+    }
+    if (
+      this.mood === "Feel Nostalgic" &&
+      (this.mediaType === "Movie" || this.mediaType === "Any")
+    ) {
+      this.selectedGenre = "31574";
+    } else {
+      if (this.mood === "Feel Nostalgic" && this.mediaType === "Series")
+        this.selectedGenre = "46553";
+    }
+    if (this.mood === "Learn") {
+      this.selectedGenre = "6839";
+    }
+    if (
+      this.mood === "Only Kind Of Pay Attention" &&
+      (this.mediaType === "Movie" || this.mediaType === "Any")
+    ) {
+      this.selectedGenre = `${
+        this.genresMovies[Math.floor(Math.random() * this.genresMovies.length)]
+          .genreId
+      }`;
+    } else {
+      if (
+        this.mood === "Only Kind Of Pay Attention" &&
+        this.mediaType === "Series"
+      )
+        this.selectedGenre = `${
+          this.genresTV[Math.floor(Math.random() * this.genresTV.length)]
+            .genreId
+        }`;
+    }
 
     // this.selectedGenre=this.genres[Math.floor(Math.random() * this.genres.length)].genreId;
     // this.api.getMovie(this.searchInput).subscribe((data:any) => console.log(data.ITEMS.filter(movie => movie.title.toLowerCase().includes(this.searchInput.toLowerCase()))));
@@ -149,32 +207,39 @@ export class AppComponent {
     // this.api.getMovie(this.mediaType, this.startYear, this.endYear,this.selectedLocation, this.selectedGenre).subscribe(data => console.log(data));
     // console.log(this.selectedGenre);
 
-    this.api.getMovie(this.mediaType, this.startYear, this.endYear, this.selectedLocation, this.selectedGenre).subscribe((data: any) => {
-      this.list = data.ITEMS;
-      console.log(data.ITEMS);
-      this.errorMessage = null;
-    });
-  }
+    this.api
+      .getMovie(
+        this.mediaType,
+        this.startYear,
+        this.endYear,
+        this.selectedLocation,
+        this.selectedGenre
+      )
+      .subscribe((data: any) => {
+        this.list = data.ITEMS;
+        console.log(data.ITEMS);
+        this.errorMessage = null;
+      });
+  };
 
-
-  getAllImdbDetails = (movie) => {
+  getAllImdbDetails = movie => {
     this.api.getImdbDetails(movie.netflixid).subscribe(data => {
       this.movie = { ...movie, ...data };
       console.log(this.movie);
     });
-  }
-  setMediaType = (type) => {
+  };
+  setMediaType = type => {
     this.mediaType = type;
     console.log(this.mediaType);
     document.getElementById("Movie").style.backgroundColor = "";
     document.getElementById("Series").style.backgroundColor = "";
     document.getElementById("Any").style.backgroundColor = "";
     document.getElementById(type).style.backgroundColor = "rgb(0, 123, 255)";
-  }
+  };
 
   closeModal = () => {
     this.movie = null;
-  }
+  };
 
   // setDateRange = (dateRange) => {
   //   if (dateRange === 'classic'){
@@ -191,9 +256,7 @@ export class AppComponent {
   //   }
   // }
 
-
-  setGenre = (genre) => {
-
+  setGenre = genre => {
     this.mood = genre;
     // if (genre === 'Feel Badass') {this.selectedGenre = '801362'};
     // if (genre === 'Laugh') {this.selectedGenre = '6548'};
@@ -213,26 +276,9 @@ export class AppComponent {
     document.getElementById("Feel Nostalgic").style.backgroundColor = "";
     document.getElementById("Learn").style.backgroundColor = "";
     document.getElementById("Watch With Kids").style.backgroundColor = "";
-    document.getElementById("Only Kind Of Pay Attention").style.backgroundColor = "";
+    document.getElementById(
+      "Only Kind Of Pay Attention"
+    ).style.backgroundColor = "";
     document.getElementById(genre).style.backgroundColor = "rgb(0, 123, 255)";
-  }
-
-
-
-  // setGenre = (genre) => {
-  //   if (genre === 'Action') {this.selectedGenre = '801362'};
-  //   if (genre === 'Comedy') {this.selectedGenre = '6548'};
-  //   if (genre === 'Romance') {this.selectedGenre = '8883'};
-  //   if (genre === 'Drama') {this.selectedGenre = '5763'};
-  //   if (genre ==='Horror' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '8711'} else {if (genre === 'Horror' && this.mediaType === 'Series') this.selectedGenre = '83059'};
-  //   if (genre === 'Children' && (this.mediaType === 'Movie' || this.mediaType === 'Any')) {this.selectedGenre = '783'} else {if (genre === 'Children' && this.mediaType === 'Series') this.selectedGenre = '11177'};
-  //   document.getElementById("Action").style.backgroundColor="";
-  //   document.getElementById("Comedy").style.backgroundColor="";
-  //   document.getElementById("Romance").style.backgroundColor="";
-  //   document.getElementById("Drama").style.backgroundColor="";
-  //   document.getElementById("Horror").style.backgroundColor="";
-  //   document.getElementById("Children & Family").style.backgroundColor="";
-  //   document.getElementById(genre).style.backgroundColor="rgb(0, 123, 255)";
-  // }
-
+  };
 }
