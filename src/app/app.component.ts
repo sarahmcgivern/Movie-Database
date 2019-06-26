@@ -30,8 +30,8 @@ interface ApiData {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app2.component.html',
+  styleUrls: ['./app2.component.css']
 })
 
 export class AppComponent {
@@ -41,8 +41,6 @@ export class AppComponent {
   movie: any;
   // movies: Movie[];
   list: object[];
-  modalMovie;
-  modalIndex: number;
   searchInput: string = null;
   typeMovie: boolean = false;
   typeTv: boolean = false;
