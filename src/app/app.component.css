@@ -20,7 +20,7 @@
 
 .input-custom {
   /* width: 300px !important; */
-  width: 80%;
+  /* width: 80%; */
   height: 45px;
 }
 
@@ -102,14 +102,13 @@ h1 {
   margin-bottom: 5px;
   height: 50px;
   width: 60%;
-  font-size: 20px;
+  font-size: 10px;
   text-align: center;
-  box-shadow: 0 0.075rem 0.1rem rgba(0, 0, 0, 0.15),
-    inset 0 0.075rem rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0.075rem 0.1rem rgba(0, 0, 0, 0.15), inset 0 0.075rem rgba(255, 255, 255, 0.3);
 }
 
 select {
-  font-size: 25px;
+  font-size: 12px;
   color: white;
   width: 60%;
   height: 40px;
@@ -159,6 +158,7 @@ button:focus {
   height: 50px;
   border-radius: 15px;
 }
+
 #suggestions:hover {
   background-color: rgb(0, 123, 255);
 }
@@ -220,6 +220,7 @@ button:focus {
   font-weight: lighter;
   margin: auto;
 }
+
 /* .content {
   display: flex;
   flex-direction: row;
@@ -257,6 +258,7 @@ button:focus {
 
 a {
   color: darkorchid;
+  font-size: 10px;
 }
 
 a:hover {
@@ -298,12 +300,7 @@ a:hover {
   margin: auto;
   margin-top: 50px;
   padding: 20px;
-  background-image: linear-gradient(
-    -215deg,
-    rgb(0, 191, 255),
-    rgb(45, 148, 243) 55%,
-    rgb(145, 54, 161217)
-  );
+  background-image: linear-gradient( -215deg, rgb(0, 191, 255), rgb(45, 148, 243) 55%, rgb(145, 54, 161217));
   border-radius: 5px;
   width: 70%;
   position: relative;
@@ -362,6 +359,7 @@ p {
 }
 
 /* TABLET */
+
 @media only screen and (min-width: 768px) {
   .navbar {
     background-color: transparent !important;
@@ -371,28 +369,65 @@ p {
     margin-left: 3%;
     margin-right: 3%;
   }
-
   .navbar-brand {
     font-size: 50px;
     /* margin-left: 40px; */
     color: darkorchid;
   }
-
   .searchRight {
     display: flex;
     flex-direction: row;
   }
-
   .input-custom {
     width: 300px !important;
     height: 45px;
   }
+  .buttonInput {
+    font-size: 18px;
+  }
+  select {
+    font-size: 20px;
+  }
+  a {
+    font-size: 12px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .plot {
+    font-size: 12px;
+  }
+  .genre {
+    font-size: 12px;
+  }
 }
 
 /* DESKTOP */
+
 @media only screen and (min-width: 1200px) {
   .content {
     display: flex;
     flex-direction: row;
+  }
+  .buttonInput {
+    font-size: 20px;
+  }
+  select {
+    font-size: 25px;
+  }
+  a {
+    font-size: 20px;
+  }
+  li {
+    padding: 20px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .plot {
+    font-size: 15px;
+  }
+  .genre {
+    font-size: 15px;
   }
 }
