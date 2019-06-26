@@ -241,9 +241,14 @@ button:focus {
   font-weight: lighter;
   margin: auto;
 }
-.content {
+/* .content {
   display: flex;
   flex-direction: row;
+} */
+
+.content {
+  display: flex;
+  flex-direction: column;
 }
 
 .imdb_button {
@@ -283,7 +288,7 @@ a:hover {
 .imdb_img {
   /* width: 100%; */
   /* max-width: 175px; */
-  max-width: 300px;
+  max-width: 100%;
   margin: auto;
   align-self: right;
   border: 10px solid white;
@@ -401,5 +406,10 @@ p {
   .input-custom {
     width: 300px !important;
     height: 45px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
   }
 }
