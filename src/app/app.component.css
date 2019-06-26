@@ -59,15 +59,18 @@
   }
 
   .container {
-    width: 400px;
+    width: 60%;
     height: 200px;
     overflow-y: auto;
+    margin-bottom: 20px;
   }
   
+
   h2 {
   text-align: center;
   color: darkorchid;
   font-family: Poppins, sans-serif;
+
   }
   
   h1 {
@@ -76,23 +79,23 @@
   
   .header_div {
   width: 100%;
-  margin: 5px;
   padding: 5px;
   }
   
   .buttonInput {
   border-radius: 15px;
   border: none;
-  margin: 5px;
+  margin-top: 10px;
   height: 50px;
   width: 100%;
   font-size: 20px;
+  text-align: center;
   }
   
   select {
   font-size: 25px;
   color: white;
-  width: 50%;
+  width: 60%;
   height: 40px;
   padding: 5px;
   float: center;
@@ -141,6 +144,7 @@
   width: 40%;
   margin-top: 20px; 
   margin-bottom: 10px;
+  height: 50px;
   }
   
   #suggestions:hover {
@@ -174,7 +178,7 @@
     margin: auto;
     width: 60%;
     height: 80px;
-    margin-top: 20px; 
+    margin-top: 150px; 
     margin-bottom: 10px;
     text-align: center;
   }
@@ -185,7 +189,6 @@
   rgb(45, 148, 243) 55%,
   rgb(145, 54, 161217)); */
   background-color: darkorchid;
-  border: 1px solid rgb(172, 244, 252);
   width: 180px;
   padding: 20px;
   margin: 5px;
@@ -279,7 +282,7 @@
   opacity: 0;
   }
   
-  .overlay:target {
+  .overlay.visible {
   visibility: visible;
   opacity: 1;
   }
