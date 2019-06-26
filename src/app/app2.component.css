@@ -275,7 +275,7 @@ button:focus {
 }
 .content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .imdb_button {
@@ -315,7 +315,8 @@ a:hover {
 .imdb_img {
   /* width: 100%; */
   /* max-width: 175px; */
-  max-width: 300px;
+  /* max-width: 300px; */
+  max-width: 100%;
   margin: auto;
   align-self: right;
   border: 10px solid white;
