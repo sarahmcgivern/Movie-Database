@@ -6,8 +6,17 @@
     <input [(ngModel)]="searchInput" class="form-control mr-sm-2 input-custom" type="text"
       placeholder="Search by keyword..." aria-label="Search" [ngModelOptions]="{ standalone: true }" id="inputRev" />
     <!-- <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button> -->
-    <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit">
-      <a href="#search">Search</a>
+
+    <button
+      (click)="searchAllMovies()"
+      class="searchButton"
+      id="searchButton"
+      type="submit"
+    >
+      <a href="#search">
+        Search
+      </a>
+
     </button>
   </div>
 </nav>
