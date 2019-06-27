@@ -138,6 +138,10 @@ button:focus {
   font-size: 20px;
 }
 
+.btn-primary:hover {
+  background-color: rgb(0, 123, 255);
+}
+
 .buttonInput:hover {
   background-color: #95f4ff;
   border: 2px solid rgb(0, 123, 255);
@@ -418,6 +422,7 @@ p {
   .imdb_img {
     max-width: 30%;
     border: 5px solid white;
+    margin: 0;
   }
 }
 
