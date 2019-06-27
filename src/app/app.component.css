@@ -273,10 +273,10 @@ a:hover {
 .imdb_img {
   /* width: 100%; */
   /* max-width: 175px; */
-  max-width: 100%;
+  max-width: 60%;
   margin: auto;
   align-self: right;
-  border: 10px solid white;
+  border: 5px solid white;
   border-radius: 5px;
   float: right;
   /* width: 50%; */
@@ -347,6 +347,7 @@ ul {
 
 .plot {
   font-size: 10px;
+  line-height: 1.2;
 }
 
 .genre {
@@ -356,6 +357,12 @@ ul {
 
 p {
   font-size: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-weight: 800;
 }
 
 .linked {
@@ -404,6 +411,10 @@ p {
   .genre {
     font-size: 12px;
   }
+  .imdb_img {
+    max-width: 30%;
+    border: 5px solid white;
+  }
 }
 
 /* DESKTOP */
@@ -433,5 +444,9 @@ p {
   }
   .genre {
     font-size: 15px;
+  }
+  .imdb_img {
+    max-width: 100%;
+    border: 10px solid white;
   }
 }
