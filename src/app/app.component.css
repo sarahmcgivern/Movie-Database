@@ -25,21 +25,15 @@
   margin-bottom: 2px;
 }
 
-.btn-outline-success {
-  border: none;
-  color: darkorchid;
-  background-color: #95f4ff;
-  height: 45px;
-}
-
 #searchButton {
   border: none;
   color: darkorchid;
   background-color: #95f4ff;
   height: 45px;
-  outline: darkorchid;
+  outline: darkorchid !important;
   border-color: none;
   width: 40%;
+  border-radius: 10px;
 }
 
 #searchButton:focus {
@@ -121,6 +115,10 @@ li {
 
 .btn {
   border-radius: 15px;
+}
+
+button:focus {
+  outline: 0 none;
 }
 
 .btn-primary {
