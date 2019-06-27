@@ -1,11 +1,15 @@
-<!-- **navbar** -->
-<!-- <nav class="navbar navbar-light bg-light navbar-custom"> -->
 <nav class="navbar">
   <div class="navbar-brand">flixme</div>
   <div class="searchRight">
-    <input [(ngModel)]="searchInput" class="form-control mr-sm-2 input-custom" type="text"
-      placeholder="Search by keyword..." aria-label="Search" [ngModelOptions]="{ standalone: true }" id="inputRev" />
-    <!-- <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button> -->
+    <input
+      [(ngModel)]="searchInput"
+      class="form-control mr-sm-2 input-custom"
+      type="text"
+      placeholder="Search by keyword..."
+      aria-label="Search"
+      [ngModelOptions]="{ standalone: true }"
+      id="inputRev"
+    />
 
     <button
       (click)="searchAllMovies()"
@@ -16,12 +20,10 @@
       <a href="#search">
         Search
       </a>
-
     </button>
   </div>
 </nav>
 
-<!-- **form** -->
 <div class="form-container">
   <div class="header_div">
     <h2>I'm looking for a...</h2>
@@ -29,7 +31,12 @@
 
   <div class="container">
     <div class="options" *ngFor="let type of mediaButtons">
-      <button class="buttonInput" type="button" id="{{ type }}" (click)="setMediaType(type)">
+      <button
+        class="buttonInput"
+        type="button"
+        id="{{ type }}"
+        (click)="setMediaType(type)"
+      >
         {{ type }}
       </button>
     </div>
@@ -41,7 +48,12 @@
 
   <div class="container">
     <div class="options" *ngFor="let type of genreButtons">
-      <button class="buttonInput" type="button" id="{{ type }}" (click)="setGenre(type)">
+      <button
+        class="buttonInput"
+        type="button"
+        id="{{ type }}"
+        (click)="setGenre(type)"
+      >
         {{ type }}
       </button>
     </div>
@@ -52,7 +64,8 @@
   </div>
 
   <h1>
-    <select [(ngModel)]="selectedLocation"><br /><br />
+    <select [(ngModel)]="selectedLocation"
+      ><br /><br />
       <option *ngFor="let l of locations" [ngValue]="l.id">{{ l.name }}</option>
     </select>
   </h1>
@@ -60,17 +73,20 @@
 </div>
 
 <div class="button_div">
-  <button (click)="getAllMovies()" type="button" class="btn btn-primary" id="suggestions">
+  <button
+    (click)="getAllMovies()"
+    type="button"
+    class="btn btn-primary"
+    id="suggestions"
+  >
     <a href="#search">See Suggestions</a>
   </button>
 </div>
 
-<!-- **results error** -->
 <div id="search" *ngIf="this.errorMessage" class="errorMessage">
   <h1>{{ errorMessage }}</h1>
 </div>
 
-<!-- **search results container** -->
 <div class="search-smooth" id="search">
   <div class="search_results_container">
     <div class="search_results_div" *ngFor="let movie of list">
@@ -81,13 +97,14 @@
       <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
 
       <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary"><a href="#popup1">See Details</a></button> -->
-      <a (click)="getAllImdbDetails(movie)" class="btn btn-primary">See Details</a>
+      <a (click)="getAllImdbDetails(movie)" class="btn btn-primary"
+        >See Details</a
+      >
       <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" data-toggle='modal' data-target="#popup1">See Details</button> -->
     </div>
   </div>
 </div>
 
-<!-- **imdb modal** -->
 <div class="imdb_results_container">
   <div class="imdb_results_div">
     <div id="popup1" [ngClass]="{ overlay: true, visible: movie }">
@@ -96,7 +113,12 @@
         <!-- <a class="close" href="#suggestions">&times;</a> -->
         <a class="close" (click)="closeModal()">&times;</a>
         <div class="content">
-          <img class="imdb_img" *ngIf="movie" src="{{ movie.poster }}" target="_blank" />
+          <img
+            class="imdb_img"
+            *ngIf="movie"
+            src="{{ movie.poster }}"
+            target="_blank"
+          />
           <ul>
             <li *ngIf="movie">
               <p class="title">{{ movie.title | replaceAscii }}</p>
@@ -106,7 +128,12 @@
               <p>Runtime: {{ movie.runtime }}</p>
               <p>
                 View Trailer & More Details on
-                <a href="{{ baseUrl }}{{ movie.imdbid }}" target="_blank" class="linked">IMDB.com</a>
+                <a
+                  href="{{ baseUrl }}{{ movie.imdbid }}"
+                  target="_blank"
+                  class="linked"
+                  >IMDB.com</a
+                >
               </p>
             </li>
           </ul>
