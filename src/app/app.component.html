@@ -1,5 +1,3 @@
-<!-- **navbar** -->
-<!-- <nav class="navbar navbar-light bg-light navbar-custom"> -->
 <nav class="navbar">
   <div class="navbar-brand">flixme</div>
   <div class="searchRight">
@@ -12,7 +10,6 @@
       [ngModelOptions]="{ standalone: true }"
       id="inputRev"
     />
-    <!-- <button (click)="searchAllMovies()" class="btn btn-outline-success my-2 my-sm-0" id="searchButton" type="submit" data-toggle="modal" data-target=".bd-example-modal-lg">Search</button> -->
 
     <button
       (click)="searchAllMovies()"
@@ -27,7 +24,6 @@
   </div>
 </nav>
 
-<!-- **form** -->
 <div class="form-container">
   <div class="header_div">
     <h2>I'm looking for a...</h2>
@@ -87,12 +83,10 @@
   </button>
 </div>
 
-<!-- **results error** -->
 <div id="search" *ngIf="this.errorMessage" class="errorMessage">
   <h1>{{ errorMessage }}</h1>
 </div>
 
-<!-- **search results container** -->
 <div class="search-smooth" id="search">
   <div class="search_results_container">
     <div class="search_results_div" *ngFor="let movie of list">
@@ -111,7 +105,6 @@
   </div>
 </div>
 
-<!-- **imdb modal** -->
 <div class="imdb_results_container">
   <div class="imdb_results_div">
     <div id="popup1" [ngClass]="{ overlay: true, visible: movie }">
