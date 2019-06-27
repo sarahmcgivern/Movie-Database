@@ -138,8 +138,12 @@ export class AppComponent {
     if (this.mood === "Laugh") {
       this.selectedGenre = "6548";
     }
-    if (this.mood === "Believe In Love") {
+    if (this.mood === "Believe In Love" &&
+    (this.mediaType === "Movie" || this.mediaType === "Any")) {
       this.selectedGenre = "8883";
+    } else {
+      if (this.mood === "Believe In Love" && this.mediaType === "Series")
+      this.selectedGenre = "10634";
     }
     if (this.mood === "Think") {
       this.selectedGenre = "5763";
