@@ -63,7 +63,7 @@
 
 .container {
   width: 100%;
-  height: 215px;
+  height: 19 5px;
   overflow-y: auto;
   margin-bottom: 20px;
 }
@@ -474,6 +474,6 @@ p {
     border: 10px solid white;
   }
   .container {
-    height: 195px;
+    height: 215px;
   }
 }
