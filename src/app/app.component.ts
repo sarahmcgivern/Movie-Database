@@ -2,31 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Api } from "./services/api.service";
 
-// interface MovieInfo {
-//   title: string;
-// }
-
-// interface Movie {
-//   count: number;
-//   movie: MovieInfo[];
-// }
-
-// interface IMDB {
-//   filmid: string;
-//   genre: string;
-//   plot: string;
-//   poster: string;
-//   released: string;
-//   runtime: string;
-// }
-
-// interface ApiData {
-//   items: Movie;
-//   hits: Movie[];
-//   imdbResults: IMDB;
-//   results: IMDB[];
-// }
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -138,12 +113,14 @@ export class AppComponent {
     if (this.mood === "Laugh") {
       this.selectedGenre = "6548";
     }
-    if (this.mood === "Believe In Love" &&
-    (this.mediaType === "Movie" || this.mediaType === "Any")) {
+    if (
+      this.mood === "Believe In Love" &&
+      (this.mediaType === "Movie" || this.mediaType === "Any")
+    ) {
       this.selectedGenre = "8883";
     } else {
       if (this.mood === "Believe In Love" && this.mediaType === "Series")
-      this.selectedGenre = "10634";
+        this.selectedGenre = "10634";
     }
     if (this.mood === "Think") {
       this.selectedGenre = "5763";
