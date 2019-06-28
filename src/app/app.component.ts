@@ -2,31 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Api } from "./services/api.service";
 
-// interface MovieInfo {
-//   title: string;
-// }
-
-// interface Movie {
-//   count: number;
-//   movie: MovieInfo[];
-// }
-
-// interface IMDB {
-//   filmid: string;
-//   genre: string;
-//   plot: string;
-//   poster: string;
-//   released: string;
-//   runtime: string;
-// }
-
-// interface ApiData {
-//   items: Movie;
-//   hits: Movie[];
-//   imdbResults: IMDB;
-//   results: IMDB[];
-// }
-
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -221,19 +196,12 @@ export class AppComponent {
       });
   };
 
-  // getAllImdbDetails = movie => {
-  //   this.api.getImdbDetails(movie.netflixid).subscribe(data => {
-  //     this.movie = { ...movie, ...data };
-  //     console.log(this.movie);
-  //   });
-  // };
-
-  getAllImdbDetails = (netflixid) => {
-    this.api.getImdbDetails(netflixid).subscribe(data => {
-      this.movie = data;
-      console.log(this.movie)
-    })
-  }
+  getAllImdbDetails = movie => {
+    this.api.getImdbDetails(movie.netflixid).subscribe(data => {
+      this.movie = { ...movie, ...data };
+      console.log(this.movie);
+    });
+  };
 
   setMediaType = type => {
     this.mediaType = type;

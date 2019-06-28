@@ -96,11 +96,9 @@
 
       <h5 class="movie_heading">{{ movie.title | replaceAscii }}</h5>
 
-      <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary"><a href="#popup1">See Details</a></button> -->
       <a (click)="getAllImdbDetails(movie)" class="btn btn-primary"
         >See Details</a
       >
-      <!-- <button (click)="getAllImdbDetails(movie.netflixid)" class="btn btn-primary" data-toggle='modal' data-target="#popup1">See Details</button> -->
     </div>
   </div>
 </div>
@@ -120,11 +118,8 @@
             target="_blank"
           />
           <ul>
-            <!-- <li *ngIf="movie"> -->
-            <li>
-              <p class="title">
-                {{ movie.title | replaceAscii }}
-              </p>
+            <li *ngIf="movie">
+              <p class="title">{{ movie.title | replaceAscii }}</p>
               <p class="plot">Plot: {{ movie.plot | replaceAscii }}</p>
               <p class="genre">Genre: ({{ movie.genre | replaceAscii }})</p>
               <p>Released: {{ movie.released }}</p>
